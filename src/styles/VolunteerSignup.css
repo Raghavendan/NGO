@@ -1,0 +1,102 @@
+/* General styles for the container */
+.Lapp {
+  margin-top: -80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+/* Styling the row containing the SignUp/Login toggle */
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.pointer {
+  padding: 10px 20px;
+  margin: 0 10px ;
+  cursor: pointer;
+  color: #555;
+  border-bottom: 2px solid transparent;
+}
+
+.activeColor {
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+}
+
+/* Form heading */
+h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .App {
+    padding: 20px;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pointer, .activeColor {
+    margin-bottom: 10px;
+  }
+}

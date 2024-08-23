@@ -1,0 +1,190 @@
+/* Universal Styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Titillium Web", sans-serif;
+}
+
+:root {
+  --mainColor: #2d34f5;
+  --mainColorLight: #5767aa;
+  --secondaryColor: #db2b39;
+  --textColor: white;
+}
+
+/* Navbar */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 2rem;
+  background-color: var(--mainColor);
+  color: var(--textColor);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  border-radius: 30px;
+}
+
+h3 {
+  margin-right: auto; /* Adjusts based on available space */
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  text-align: center;
+  margin: 0 0.5rem;
+  color: var(--textColor);
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  padding: 0.5rem;
+  font-size: 1rem; /* Set a base font size */
+}
+
+nav a:hover {
+  color: var(--mainColor);
+  font-weight: 900;
+  background: white;
+  border-radius: 5px;
+}
+
+header .nav-btn {
+  padding: 5px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--textColor);
+  visibility: hidden;
+  opacity: 0;
+  font-size: 1.8rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  h3 {
+    margin-right: 1rem; /* Adjust the margin for smaller screens */
+  }
+
+  header .nav-btn {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  header nav {
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: var(--mainColor);
+    transition: transform 1s;
+    z-index: 999;
+  }
+
+  header .responsive_nav {
+    transform: translateY(100vh);
+  }
+
+  nav .nav-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  nav a {
+    font-size: 1.5rem; /* Increase font size for better touch targets */
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* Adjustments for tablet and mobile views */
+  header {
+    padding: 0 1rem;
+  }
+
+  nav a {
+    font-size: 1.2rem; /* Slightly increase for better readability */
+  }
+  
+  .icon-btn {
+    height: 40px;
+    width: 40px;
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  /* Adjustments for small mobile screens */
+  header {
+    padding: 0 0.5rem;
+  }
+
+  nav a {
+    font-size: 1rem; /* Smaller font for mobile */
+    padding: 0.4rem;
+  }
+
+  .icon-btn {
+    height: 35px;
+    width: 35px;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+  }
+}
+
+.parentbtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-buttons {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  justify-content: flex-end;
+}
+
+.icon-btn {
+  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out, color 0.3s ease-in-out;
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  background: white;
+  color: #2d34f5;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid white 1px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-left: 1rem;
+}
+
+.icon-btn:hover {
+  background-color: #2d34f5;
+  color: white;
+}
+
+body {
+  padding-top: 80px;
+}
