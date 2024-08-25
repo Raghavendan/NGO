@@ -17,6 +17,9 @@ function Navbar() {
 	const handleSignupClick = () => {
 		navigate('/signup'); // Navigate to the signup page
 	  };
+	const admin = () => {
+		navigate('/admin'); 
+	};
 
 
 	return (
@@ -38,7 +41,7 @@ function Navbar() {
 			<div className='parentbtn'>
 			<div className="icon-buttons">
 				<button className="icon-btn" >
-					<FaUserShield title="Admin" id='faicon'/>
+					<FaUserShield title="Admin" id='faicon' onClick={admin}/>
 				</button>
 				<button className="icon-btn" id='faicon' onClick={handleSignupClick}>
 					<FaUserFriends title="Volunteer" />

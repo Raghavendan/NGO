@@ -7,6 +7,7 @@ import Donate from './Donate';
 import About from './About';
 import Footer from './footer';
 import VolunteerSignup from './VSignup';
+import AdminDash from './AdminDash';
 import {BrowserRouter,Routes,Route } from "react-router-dom";
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
               <Route path="/donate" element={<Donate/>}/>
               <Route path="/abt" element={<About/>}/>
               <Route path="/signup" element={<VolunteerSignup />} />
+              <Route path="/admin" element={<AdminDash />} />
+
             </Routes>
                
           

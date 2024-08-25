@@ -1,0 +1,155 @@
+.admin{
+    padding: 20px;    
+    margin-top: -100px;
+  }
+.adlogo{
+    height: 100px;
+    width: 100px;
+    border-radius: 80px;
+} 
+ 
+.title {
+      color: #5C6AC4;
+}
+.headerleft{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    float: left;
+    font-weight: 600; 
+
+}
+#headerleft{
+    display: flex;
+    height: 40px;
+    width: auto;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 50px;
+    cursor: pointer;
+    background: #f3f4f7;
+}
+.admin__header{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+  #adicon{
+    height: 30px;
+    width: 30px;
+  }
+  .cont{
+    margin-top: -100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px 0 40px ;
+    width:100%;
+  }
+  .left-side{
+     display: flex;
+    gap: 20px;
+  }
+  .cont-1{
+    padding: 0 20px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    
+  }
+  .leftcont{
+     display: flex;
+    gap: 20px;
+  }
+  .cont3{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 80px;
+    flex-wrap: nowrap;
+    margin-top: 50px;
+  }
+  #bg1{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 300px;
+    font-size: 20px;
+    font-style: bold;
+    gap: 20px;
+    background: #2755B7;
+    color: #FFFFFF;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);    
+  }
+  #bg1:hover{
+    background: #FFFFFF;
+    color: #2755B7;
+    font-size: 20px;
+    font-style: bold;
+    box-shadow: 0px 4px 8px #2755B7;    
+
+  }
+  .cont4{
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 40px;
+    
+  }
+  #bg2{
+    margin: 40px 50px 0px 50px;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    background: #FFFFFF;
+    gap: 15px;
+    fill: #2755B7;
+    box-shadow: 0px 2px 2px  #2755B7;
+    transition: background 0.5s, color 0.5s, fill 0.5s;
+  }
+  #bg2img{   
+    
+    height: 60px;
+    width: 60px;
+    fill: #2755B7;
+    transition: transform 0.5s;
+  }
+  #bg2span{
+    font-size: 20px;
+    font-weight: 600;
+    color: #2755B7;
+    transition: transform 0.5s;
+
+  }
+  #bg2:hover {
+    
+    box-shadow: 0px 2px 2px rgb(244, 242, 242);
+    border: solid #2755B7 1px ;
+}
+
+#bg2:hover #bg2img {
+   
+    transform: scale(1.2); 
+}
+
+#bg2:hover #bg2span {
+    
+    transform: scale(1.1); 
+}
+
+
+
+  
