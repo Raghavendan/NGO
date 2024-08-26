@@ -102,9 +102,9 @@ header .nav-btn {
   }
 
   nav .nav-close-btn {
-    position: fixed;
+    position: relative;
     top: 2rem;
-    right: 2rem;
+    right: 0rem;
   }
 
   nav a {

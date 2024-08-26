@@ -18,7 +18,7 @@ function Navbar() {
 		navigate('/signup'); // Navigate to the signup page
 	  };
 	const admin = () => {
-		navigate('/admin'); 
+		navigate('/admin'); // Navigate to the signup page
 	};
 
 

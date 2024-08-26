@@ -6,9 +6,10 @@ import './styles/Home.css';
 import Footer from './footer';
 
 
-import image1 from './assets/1.jpg';
-import image2 from './assets/2.jpg';
-import image4 from './assets/4.jpg';
+import image1 from './assets/1.jpeg';
+import image2 from './assets/2.jpeg';
+import image3 from './assets/3.png'
+import image4 from './assets/4.png';
 import paint from './assets/painting.png';
 import volunteer from './assets/volunteer.png';
 import ser from './assets/service.png';
@@ -29,7 +30,6 @@ const divStyle = {
 };
 
 const blurStyle = {
-  filter: 'blur(2px)',
   position: 'absolute',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
@@ -46,7 +46,7 @@ const overlayStyle = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  zIndex: 3,
+  zIndex: 4,
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -58,13 +58,16 @@ const overlayStyle = {
 
 const slideImages = [
   {
-    url: image1,
+    url: image4,
   },
   {
     url: image2,
   },
   {
-    url: image4,
+    url: image3,
+  },
+  {
+    url: image1,
   },
 ];
 

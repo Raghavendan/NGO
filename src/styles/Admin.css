@@ -142,12 +142,29 @@
 
 #bg2:hover #bg2img {
    
-    transform: scale(1.2); 
+    transform: scale(1.4); 
 }
 
 #bg2:hover #bg2span {
     
     transform: scale(1.1); 
+}
+
+@media only screen and (max-width: 480px) {
+  #bg1, #bg2 {
+    height: 120px;
+    width: 120px;
+    font-size: 16px;
+  }
+
+  #bg2img {
+    height: 40px;
+    width: 40px;
+  }
+
+  #bg2span {
+    font-size: 16px;
+  }
 }
 
 

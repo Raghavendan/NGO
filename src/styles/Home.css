@@ -17,40 +17,56 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 50px;
     flex-wrap: wrap; /* Allows content to wrap on smaller screens */
   }
   
   #conttwo1 {
-    height: 150px; /* Reduced size for better mobile fit */
-    margin: 10px;
-    width: 150px;
+    height: 200px; /* Reduced size for better mobile fit */
+    width: 200px;
+    margin: 50px;
     background: #2d34f5;
     border-radius: 20px;
     display: flex;
     flex-direction: column; /* Ensures inner content is centered vertically */
     justify-content: center;
     align-items: center;
+    transition: border 0.5s, color 0.5s; /* Smooth transitions */
   }
   
   #imgcont1 {
-    height: 80px; /* Reduced size */
-    width: 80px;
+    height: 60px; /* Reduced size */
+    width: 60px;
     margin: 0; /* Removed unnecessary margins */
+    transition: transform 0.3s; /* Smooth transform effect */
   }
   
   #txtcont1 {
     font-size: 1rem; /* Use rem for scalability */
-    font-weight: 900;
+    font-weight: 600;
+    margin-top: 20px;
     color: white;
     text-align: center; /* Ensures text is centered */
     padding: 10px; /* Added padding for better spacing */
+    transition: color 0.5s; /* Smooth color transition */
   }
   
   #conttwo1:hover {
-    background: #585863;
-    border: #020202 solid 2px;
-    cursor: pointer; /* Simplified cursor style */
+    border: solid 1px #2d34f5;
+    color: blue;
+    cursor: pointer;
+    box-shadow: rgb(179, 177, 177) 0px 8px 8px 5px;
   }
+  
+  
+  
+  #conttwo1:hover #imgcont1 {
+    transform: scale(1.4); /* Scale image on hover */
+  }
+  #conttwo1:hover #txtcont1 {
+    transform: scale(1.1); /* Scale image on hover */
+  }
+  
   
   /* Media Query for Mobile View */
   @media only screen and (max-width: 480px) {
@@ -74,8 +90,6 @@
       height: 60px;
     }
   
-    #txtcont1 {
-      font-size: 0.8rem; /* Reduced text size */
-    }
+   
   }
   
