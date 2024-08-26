@@ -4,6 +4,8 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 import React, { useEffect, useState } from 'react';
 import ico from "./assets/icon.jpg";
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
 import { IoHome } from 'react-icons/io5';
 import { MdEvent,MdMiscellaneousServices } from 'react-icons/md';
 import { IoIosChatbubbles } from "react-icons/io";
@@ -25,6 +27,8 @@ function AdminDash() {
     const Services = () => {
 		navigate('/'); // Navigate to the signup page
 	  };
+    const location = useLocation();
+    const { adminName } = location.state || {};
 
 
     // Firebase configuration
@@ -73,8 +77,7 @@ function AdminDash() {
         <div className='admin'>
             <div className='admin__header'>
                 <img className='adlogo' src={ico} alt="Admin Logo" />
-                <h3>Welcome🙏</h3>
-                <div className='headerleft'>
+                {adminName ? <h3>Vanakkam🙏 {adminName} </h3> : <p>Loading...</p>}                <div className='headerleft'>
                     <div id='headerleft'>
                         <span>{time}</span>
                         <img id='adicon' src="https://cdn-icons-png.flaticon.com/128/2784/2784459.png" alt="Clock Icon" />

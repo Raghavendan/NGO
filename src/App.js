@@ -8,6 +8,7 @@ import About from './About';
 import Footer from './footer';
 import VolunteerSignup from './VSignup';
 import AdminDash from './AdminDash';
+import Adlog from './Adminlogin';
 import {BrowserRouter,Routes,Route } from "react-router-dom";
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
               <Route path="/abt" element={<About/>}/>
               <Route path="/signup" element={<VolunteerSignup />} />
               <Route path="/admin" element={<AdminDash />} />
+              <Route path="/adminlogin" element={<Adlog />} />
+
 
             </Routes>
                
