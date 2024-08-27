@@ -9,7 +9,7 @@
 } 
  
 .title {
-      color: #5C6AC4;
+      color: #3E42A6;
 }
 .headerleft{
     display: flex;
@@ -84,7 +84,7 @@
     font-size: 20px;
     font-style: bold;
     gap: 20px;
-    background: #2755B7;
+    background: #3E42A6;
     color: #FFFFFF;
     border-radius: 10px;
     text-align: center;
@@ -92,10 +92,10 @@
   }
   #bg1:hover{
     background: #FFFFFF;
-    color: #2755B7;
+    color: #3E42A6;
     font-size: 20px;
     font-style: bold;
-    box-shadow: 0px 4px 8px #2755B7;    
+    box-shadow: 0px 4px 8px #3E42A6;    
 
   }
   .cont4{
@@ -116,28 +116,28 @@
     border-radius: 100px;
     background: #FFFFFF;
     gap: 15px;
-    fill: #2755B7;
-    box-shadow: 0px 2px 2px  #2755B7;
+    fill: #3E42A6;
+    box-shadow: 0px 2px 2px  #3E42A6;
     transition: background 0.5s, color 0.5s, fill 0.5s;
   }
   #bg2img{   
     
     height: 60px;
     width: 60px;
-    fill: #2755B7;
+    fill: #3E42A6;
     transition: transform 0.5s;
   }
   #bg2span{
     font-size: 20px;
     font-weight: 600;
-    color: #2755B7;
+    color: #3E42A6;
     transition: transform 0.5s;
 
   }
   #bg2:hover {
     
     box-shadow: 0px 2px 2px rgb(244, 242, 242);
-    border: solid #2755B7 1px ;
+    border: solid #3E42A6 1px ;
 }
 
 #bg2:hover #bg2img {

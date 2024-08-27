@@ -1,5 +1,5 @@
 .moto {
-    color: #2d34f5;
+    color: #3E42A6;
     font-size: 2rem; /* Changed to rem for better responsiveness */
     z-index: 2;
     font-weight: 900;
@@ -25,7 +25,7 @@
     height: 200px; /* Reduced size for better mobile fit */
     width: 200px;
     margin: 50px;
-    background: #2d34f5;
+    background: #3E42A6;
     border-radius: 20px;
     display: flex;
     flex-direction: column; /* Ensures inner content is centered vertically */
@@ -52,7 +52,7 @@
   }
   
   #conttwo1:hover {
-    border: solid 1px #2d34f5;
+    border: solid 1px #3E42A6;
     color: blue;
     cursor: pointer;
     box-shadow: rgb(179, 177, 177) 0px 8px 8px 5px;

@@ -6,7 +6,7 @@
 }
 
 :root {
-  --mainColor: #2d34f5;
+  --mainColor: #3E42A6;
   --mainColorLight: #5767aa;
   --secondaryColor: #db2b39;
   --textColor: white;
@@ -168,7 +168,7 @@ header .nav-btn {
   width: 50px;
   border-radius: 5px;
   background: white;
-  color: #2d34f5;
+  color: #3E42A6;
   border: none;
   display: flex;
   align-items: center;
@@ -180,7 +180,7 @@ header .nav-btn {
 }
 
 .icon-btn:hover {
-  background-color: #2d34f5;
+  background-color: #3E42A6;
   color: white;
 }
 
