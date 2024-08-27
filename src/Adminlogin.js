@@ -22,8 +22,9 @@ function AdminLogin() {
       if (adminData) {
         if (adminData.userID === userId && adminData.password === password) {
           // Successful login
-          window.location.href = '/admin';
           navigate('/admin', { state: { adminName: adminData.adminName } }); // Redirect to admin dashboard
+
+          window.location.href = '/admin';
         } else {
           setError('Invalid user ID or password');
         }

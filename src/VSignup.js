@@ -1,10 +1,25 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import './styles/VolunteerSignup.css';
-import { database } from './firebase';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import { getDatabase, ref, set , get } from 'firebase/database';
+import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { getDatabase, ref, set, get } from 'firebase/database';
 import AlertModal from './AlertModal'; // Import the AlertModal component
+
+// Initialize Firebase
+const firebaseConfig = {
+  // Your Firebase config here
+   apiKey: "AIzaSyAzqHIO-1C4V6uMP6evINH8Mv3Qd81DEcE",
+    authDomain: "karpingo-73250.firebaseapp.com",
+    projectId: "karpingo-73250",
+    storageBucket: "karpingo-73250.appspot.com",
+    messagingSenderId: "327982242100",
+    appId: "1:327982242100:web:214191ad5f7aa1062c2d61"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);  // Initialize the auth instance
+const database = getDatabase(app);  // Initialize the database instance
 
 function VSignup() {
   const [login, setLogin] = useState(true);
@@ -22,12 +37,9 @@ function VSignup() {
       let email;
       if (type === 'login') {
         if (identifier.includes('@')) {
-          // It's an email
           email = identifier;
         } else {
-          // It's a mobile number; retrieve the corresponding email from the database
-          const db = getDatabase();
-          const usersRef = ref(db, 'Volunteers');
+          const usersRef = ref(database, 'Volunteers');
           const snapshot = await get(usersRef);
   
           const users = snapshot.val();
@@ -40,20 +52,19 @@ function VSignup() {
           }
         }
   
-        const userCredential = await signInWithEmailAndPassword(database, email, password);
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
         setAlertMessage(`Welcome back! You are now logged in.`);
         setShowAlert(true);
         history('/');
       } else {
-        const email = identifier;
+        email = identifier;
         const username = e.target.username?.value;
         const mobile = e.target.mobile?.value;
   
-        const userCredential = await createUserWithEmailAndPassword(database, email, password);
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
   
-        const db = getDatabase();
-        await set(ref(db, 'Volunteers/' + user.uid), {
+        await set(ref(database, 'Volunteers/' + user.uid), {
           username: username,
           email: email,
           mobile: mobile,

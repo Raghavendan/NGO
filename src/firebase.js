@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getDatabase, ref, set } from 'firebase/database';
 
 var firebaseConfig = {
@@ -12,7 +13,9 @@ var firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 const database = getDatabase(app);
+
 
 function createAdminUser() {
   const adminRef = ref(database, 'admin');
@@ -23,6 +26,7 @@ function createAdminUser() {
   })
   .then(() => {
     console.log('Admin Login successfully!');
+
   })
   .catch((error) => {
     console.error('Error creating admin user:', error);
