@@ -1,3 +1,63 @@
+/*-------Admin login--------*/
+.adlog {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.adcont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.adcont div {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.adcont label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.adcont input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.adcont button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.adcont button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*-----Admin Dashboard-------*/
 .admin{
     padding: 20px;    
     margin-top: -100px;
@@ -16,7 +76,7 @@
     align-items: center;
     gap: 10px;
     float: left;
-    font-weight: 600; 
+    font-weight: 600;
 
 }
 #headerleft{

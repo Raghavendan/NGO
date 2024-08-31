@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "./styles/Event.css";
 import Navbar from "./Navbar";
-//import { database, ref, push } from "./firebase";
+import { database, ref, push } from "./firebase";
+import AlertModal from "./AlertModal";
 
 const Event = () => {
     const [selectedDate, setSelectedDate] = useState(null);
@@ -11,6 +12,7 @@ const Event = () => {
     const [events, setEvents] = useState([]);
     const [photo, setPhoto] = useState(null);
     const [location, setLocation] = useState("");
+    const [showAlert, setShowAlert] = useState(false);
     const navigate = useNavigate();
 
     const Date_Click_Fun = (date) => {
@@ -31,20 +33,43 @@ const Event = () => {
 
     const Create_Event_Fun = () => {
         if (selectedDate && eventName) {
+            let photoUrl = null;
+    
+            // Only create an object URL if a photo has been selected
+            if (photo) {
+                photoUrl = URL.createObjectURL(photo);
+            }
+    
             const newEvent = {
                 id: new Date().getTime(),
                 date: selectedDate,
                 title: eventName,
-                photo: URL.createObjectURL(photo), // Store the photo as a URL
+                photo: photoUrl, // Store the photo as a URL if available
                 location: location,
             };
+    
             setEvents([...events, newEvent]);
             setSelectedDate(null);
             setEventName("");
             setPhoto(null);
             setLocation("");
-            setSelectedDate(newEvent.date);
         }
+    };
+    
+
+    const Post_Events_To_Firebase = () => {
+        events.forEach((event) => {
+            const eventRef = ref(database, 'events'); // 'events' is the collection name in Firebase
+            push(eventRef, {
+                id: event.id,
+                date: event.date.toISOString(), // Store date as a string
+                title: event.title,
+                photo: event.photo,
+                location: event.location,
+            });
+            setShowAlert(true);
+
+        });
     };
 
     const Update_Event_Fun = (eventId, newName) => {
@@ -65,6 +90,10 @@ const Event = () => {
         setEvents(updated_Events);
     };
 
+    const handleCloseAlert = () => {
+        setShowAlert(false);
+    };
+
     return (
         <div className="app">
             <Navbar />
@@ -81,7 +110,7 @@ const Event = () => {
                                     ? "selected"
                                     : events.some(
                                           (event) =>
-                                              event.date.toDateString() ===
+                                              new Date(event.date).toDateString() ===
                                               date.toDateString(),
                                       )
                                     ? "event-marked"
@@ -135,7 +164,7 @@ const Event = () => {
                                             )}
                                             <div className="event-card-header">
                                                 <span className="event-date">
-                                                    🗓️{event.date.toDateString()}
+                                                    🗓️{new Date(event.date).toDateString()}
                                                 </span>
                                                 <span className="event-location">
                                                 🌏{event.location}
@@ -172,11 +201,21 @@ const Event = () => {
                                     </div>
                                 ))}
                             </div>
-                            <button>Post</button>
+                            <div class="parent-container">
+                            <button className="post-btn" onClick={Post_Events_To_Firebase}>Post</button>
+                               {showAlert && (
+                                <AlertModal
+                                    message="Successfully posted the event!"
+                                    onClose={handleCloseAlert}
+                                />
+                            )}
+                            </div>
+                            
                         </div>
                     )}
                 </div>
             </div>
+            
         </div>
     );
     
