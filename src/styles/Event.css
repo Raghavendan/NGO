@@ -1,65 +1,124 @@
 
-.app{
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    height: 100vh;
-    background: url(../assets/event_bg.jpg),no-repeat;
-    background-size: cover;
-    backdrop-filter: blur(1px);
-    top: 0;
-    position: absolute;
-    right: 0;
-   
-}
-.event_t {
-    position: relative;
-    display: inline-block; /* Ensures the element is treated as inline */
-    padding: 10px;
-    margin: 20px auto; /* Auto margins will center the element */
-    text-align: center; /* Centers the text inside the element */
-    font-size: 26px;
-    font-weight: 600;
-    background: white;
-    color: #3E42A6;
-    border-radius: 10px;
 }
 
-.container{
+.calendar-and-event {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin: 20px;
+    gap: 30px;
+    width: 100%;
 }
-.event-form{
+.calendar-container{
+    border-radius: 20px;
+    background: #3E42A6;
+    margin-top: 50px; 
+}
+
+.event-container {
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+    justify-content: center;
     width: 400px;
-    margin: 10px;
-    
+    background: white;
+    padding: 20px 40px 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px #3E42A6; 
+}
+#input{
+    margin: 8px;
+}
+
+.event-list-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.ef-name{
+    text-align: center;
+}
+
+.event-list {
+    width: 100%;
+    max-width: 800px;
     background: white;
     padding: 20px;
     border-radius: 10px;
-}
-#sh{
-    color: #3E42A6;
-    text-align: center;
-}
-.sh_txt{
-    color: black;
-    font-size: 16px;
-    font-weight: 600;
-    height: 20px;
-    margin: 20px;
-    padding-inline: 20px;
-    
-    text-align: center;
-    background: none;
+    box-shadow: 0 4px 8px #3E42A6;
 }
 .event-actions{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    gap: 40px;
+    padding: 30px;
+}
+.event-date{
+    font-size: 18px;
+    
+}
+.event-location{
+    font-size: 18px;
+}
+.event-card-header{
+    display: grid;
     margin: 20px;
-    gap: 30px;
+}
+.event-title{
+    font-size: 18px;
+    margin-top:10px;
+    margin-left: 5px;
 
 }
+.event-photo{
+    border-radius: 20px;
+    margin-left: 20px;
+}
+.el-name{
+    text-align: center;
+}
+.event-photo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-top: 10px;
+}
+
+.event-location {
+    font-weight: bold;
+    margin-top: 10px;
+}
+/* Event list container styling */
+.event-list-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Center the event list container */
+}
+
+/* Event list styling */
+.event-list {
+    width: 100%; /* Make the event list take the full width of the container */
+    max-width: 800px; /* Set a maximum width to prevent it from becoming too wide */
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add space between event cards */
+}
+
 .event-card {
     display: flex;
     flex-direction: column;
@@ -69,51 +128,21 @@
     border-radius: 10px;
     background: #fff;
 }
-
-.event-content {
-    display: flex;
-    align-items: center;
-}
-
-.event-photo {
-    width: 150px; /* Adjust the size as needed */
-    height: 150px;
-    object-fit: cover;
-    margin-right: 100px;
-    border-radius: 10px;
-}
-
-.event-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100%;
-}
-
-.event-card-header,
-.event-card-body {
-    display: flex;
-    flex-direction: column;
-}
-
-.event-date {
-    font-size: 18px;
-    font-weight: 600;
+.sh_txt{
+    font-size: 16px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
-.event-title {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 5px;
-    color: #3E42A6;
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .calendar-and-event {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
-.event-location {
-    font-size: 18px;
-    font-weight: 400;
-    color: #777;
-}
 
 .react-calendar {
     width: 350px;
@@ -169,8 +198,10 @@
 }
 
 .react-calendar__navigation button {
-    min-width: 44px;
+    width: 24px;
     background: none;
+    margin: 2.5px;
+
 }
 
 .react-calendar__navigation button:disabled {
@@ -179,7 +210,7 @@
 
 .react-calendar__navigation button:enabled:hover,
 .react-calendar__navigation button:enabled:focus {
-    background-color: #e6e6e6;
+    background-color: #8b8ff3;
 }
 
 .react-calendar__month-view__weekdays {
@@ -212,24 +243,14 @@
 .react-calendar__year-view .react-calendar__tile,
 .react-calendar__decade-view .react-calendar__tile,
 .react-calendar__century-view .react-calendar__tile {
-    padding: 2em 0.5em;
-}
-.event-photo {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin-top: 10px;
+    padding: 2em 2em;
 }
 
-.event-location {
-    font-weight: bold;
-    margin-top: 10px;
-}
 
 
 .react-calendar__tile {
     max-width: 100%;
-    padding: 10px 6.6667px;
+    padding: 10px 10px;
     background: none;
     text-align: center;
     line-height: 16px;
@@ -241,16 +262,17 @@
 
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus {
-    background-color: #e6e6e6;
+    background-color: white;
+    color: black;
 }
 
 .react-calendar__tile--now {
-    background: #ffff76;
+    background: #8b8ff3;
 }
 
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
-    background: #ffffa9;
+    background: #76baff;
 }
 
 .react-calendar__tile--hasActive {
@@ -263,15 +285,20 @@
 }
 
 .react-calendar__tile--active {
-    background: #006edc;
+    background: none;    
     color: white;
 }
 
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
-    background: #1087ff;
+    background: white;
+    border: solid #8b8ff3 1px;
+    color: #8b8ff3;
+    font-weight: 600;
+
 }
 
 .react-calendar--selectRange .react-calendar__tile--hover {
-    background-color: #e6e6e6;
+    background-color: white;
+    color: black;
 }
