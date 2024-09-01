@@ -1,5 +1,4 @@
-import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "./styles/Event.css";
 import Navbar from "./Navbar";
@@ -11,9 +10,9 @@ const Event = () => {
     const [eventName, setEventName] = useState("");
     const [events, setEvents] = useState([]);
     const [photo, setPhoto] = useState(null);
+    const [photoUrl, setPhotoUrl] = useState(null);
     const [location, setLocation] = useState("");
     const [showAlert, setShowAlert] = useState(false);
-    const navigate = useNavigate();
 
     const Date_Click_Fun = (date) => {
         setSelectedDate(date);
@@ -24,7 +23,9 @@ const Event = () => {
     };
 
     const Photo_Upload_Fun = (event) => {
-        setPhoto(event.target.files[0]);
+        if (event.target.files && event.target.files[0]) {
+            setPhoto(event.target.files[0]);
+        }
     };
 
     const Location_Data_Update = (event) => {
@@ -33,65 +34,67 @@ const Event = () => {
 
     const Create_Event_Fun = () => {
         if (selectedDate && eventName) {
-            let photoUrl = null;
-    
-            // Only create an object URL if a photo has been selected
-            if (photo) {
-                photoUrl = URL.createObjectURL(photo);
+            let newPhotoUrl = null;
+
+            if (photo && (photo instanceof File || photo instanceof Blob)) {
+                newPhotoUrl = URL.createObjectURL(photo);
             }
-    
+
             const newEvent = {
                 id: new Date().getTime(),
                 date: selectedDate,
                 title: eventName,
-                photo: photoUrl, // Store the photo as a URL if available
+                photo: newPhotoUrl,
                 location: location,
             };
-    
+
             setEvents([...events, newEvent]);
+            setPhotoUrl(newPhotoUrl);
             setSelectedDate(null);
             setEventName("");
             setPhoto(null);
             setLocation("");
         }
     };
-    
 
     const Post_Events_To_Firebase = () => {
         events.forEach((event) => {
-            const eventRef = ref(database, 'events'); // 'events' is the collection name in Firebase
+            const eventRef = ref(database, 'events');
             push(eventRef, {
                 id: event.id,
-                date: event.date.toISOString(), // Store date as a string
+                date: event.date.toISOString(),
                 title: event.title,
                 photo: event.photo,
                 location: event.location,
             });
             setShowAlert(true);
-
         });
-    };
-
-    const Update_Event_Fun = (eventId, newName) => {
-        const updated_Events = events.map((event) => {
-            if (event.id === eventId) {
-                return {
-                    ...event,
-                    title: newName,
-                };
-            }
-            return event;
-        });
-        setEvents(updated_Events);
-    };
-
-    const Delete_Event_Fun = (eventId) => {
-        const updated_Events = events.filter((event) => event.id !== eventId);
-        setEvents(updated_Events);
     };
 
     const handleCloseAlert = () => {
         setShowAlert(false);
+    };
+
+    useEffect(() => {
+        return () => {
+            if (photoUrl) {
+                URL.revokeObjectURL(photoUrl);
+            }
+        };
+    }, [photoUrl]);
+
+    const Update_Event_Fun = (id, newTitle) => {
+        if (newTitle) {
+            const updatedEvents = events.map((event) =>
+                event.id === id ? { ...event, title: newTitle } : event
+            );
+            setEvents(updatedEvents);
+        }
+    };
+
+    const Delete_Event_Fun = (id) => {
+        const updatedEvents = events.filter((event) => event.id !== id);
+        setEvents(updatedEvents);
     };
 
     return (
@@ -101,7 +104,6 @@ const Event = () => {
                 <div className="calendar-and-event">
                     <div className="calendar-container">
                         <Calendar
-                        
                             value={selectedDate}
                             onClickDay={Date_Click_Fun}
                             tileClassName={({ date }) =>
@@ -173,7 +175,6 @@ const Event = () => {
                                                 {event.title}
                                                 </span>
                                             </div>
-                                            
                                         </div>
                                         <div className="event-actions">
                                             <button
@@ -201,24 +202,21 @@ const Event = () => {
                                     </div>
                                 ))}
                             </div>
-                            <div class="parent-container">
-                            <button className="post-btn" onClick={Post_Events_To_Firebase}>Post</button>
-                               {showAlert && (
-                                <AlertModal
-                                    message="Successfully posted the event!"
-                                    onClose={handleCloseAlert}
-                                />
-                            )}
+                            <div className="parent-container">
+                                <button className="post-btn" onClick={Post_Events_To_Firebase}>Post</button>
+                                {showAlert && (
+                                    <AlertModal
+                                        message="Successfully posted the event!"
+                                        onClose={handleCloseAlert}
+                                    />
+                                )}
                             </div>
-                            
                         </div>
                     )}
                 </div>
             </div>
-            
         </div>
     );
-    
 };
 
 export default Event;

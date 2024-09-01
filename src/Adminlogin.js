@@ -95,7 +95,7 @@ function AdminLogin() {
           <h2 className='adlog'>Admin Login</h2>
           <form className='adcont' onSubmit={handleLogin} style={{ display: "inline-block", marginTop: "20px" }}>
             <div>
-              <label>User ID:</label>
+              <label>User ID</label>
               <input
                 type="text"
                 value={userId}
@@ -104,7 +104,7 @@ function AdminLogin() {
               />
             </div>
             <div>
-              <label>Password:</label>
+              <label>Password</label>
               <input
                 type="password"
                 value={password}

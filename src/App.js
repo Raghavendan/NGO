@@ -9,6 +9,7 @@ import Footer from './footer';
 import VolunteerSignup from './VSignup';
 import AdminDash from './AdminDash';
 import Adlog from './Adminlogin';
+import PostEvent from './PostEvent';
 import {BrowserRouter,Routes,Route } from "react-router-dom";
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
             <Routes>
               <Route path="/" element={<Home/>}/>
               <Route path="/event" element={<Event/>}/>
+              <Route path="/post" element={<PostEvent/>}/>
+
+
               <Route path="/chat" element={<Chat/>}/>
               <Route path="/donate" element={<Donate/>}/>
               <Route path="/abt" element={<About/>}/>

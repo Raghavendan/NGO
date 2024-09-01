@@ -28,7 +28,7 @@ function Navbar() {
 			<h3 className="logoname">KARPI</h3>
 			<nav ref={navRef}>
 				<a href="/">Home</a>
-				<a href="/event">Event</a>
+				<a href="/post">Post</a>
 				<a href="/chat">Chat</a>
                 <a href="/donate">Donate</a>
 				<a href="/abt">About</a>

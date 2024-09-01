@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getDatabase, ref, set ,push ,onValue} from 'firebase/database';
+import { getStorage } from "firebase/storage";
 
 var firebaseConfig = {
     apiKey: "AIzaSyAzqHIO-1C4V6uMP6evINH8Mv3Qd81DEcE",
@@ -14,6 +15,7 @@ var firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const storage = getStorage(app);
 const database = getDatabase(app);
 
 
@@ -36,4 +38,4 @@ function createAdminUser() {
 // Call the function to create the admin user
 createAdminUser();
 
-export { database, ref, set, push, onValue };
+export { database, ref, set, push, onValue ,storage };
