@@ -33,101 +33,53 @@
     margin: 8px;
 }
 
-.event-list-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 800px;
-    margin-top: 20px;
-    padding: 20px;
-    box-sizing: border-box;
-}
+
 .ef-name{
     text-align: center;
 }
-
-.event-list {
-    width: 100%;
-    max-width: 800px;
-    background: white;
+.Created-event{
+    background-color: #8b8ff3;    
+    margin-top: 80px;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px #3E42A6;
-}
-.event-actions{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-    padding: 30px;
-}
-.event-date{
-    font-size: 18px;
-    
-}
-.event-location{
-    font-size: 18px;
-}
-.event-card-header{
-    display: grid;
-    margin: 20px;
-}
-.event-title{
-    font-size: 18px;
-    margin-top:10px;
-    margin-left: 5px;
-
-}
-.event-photo{
-    border-radius: 20px;
-    margin-left: 20px;
+    border-radius: 5%;
 }
 .el-name{
     text-align: center;
 }
-.event-photo {
+
+.event-list{
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex: wrap;
+    justify-items: center;
+}
+.event-actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+.event-photo{
+    border-radius: 20px ;
     width: 100px;
     height: 100px;
-    object-fit: cover;
-    margin-top: 10px;
+    padding: 10px;
+}
+.event-cards{
+    width: 500px;
+    display: grid;
+    place-items: center;
+}
+.event-card-header{
+    position: relative;
+    left: 20px;
 }
 
-.event-location {
-    font-weight: bold;
-    margin-top: 10px;
-}
-/* Event list container styling */
-.event-list-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center; /* Center the event list container */
-}
 
-/* Event list styling */
-.event-list {
-    width: 100%; /* Make the event list take the full width of the container */
-    max-width: 800px; /* Set a maximum width to prevent it from becoming too wide */
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
 
-.event-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Add space between event cards */
-}
 
-.event-card {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background: #fff;
-}
 .sh_txt{
     font-size: 16px;
     margin-bottom: 10px;
@@ -143,7 +95,8 @@
 .parent-container {
     display: flex;
     justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    align-items: center;
+    margin-top: 20px; /* Center vertically */
 }
 
 

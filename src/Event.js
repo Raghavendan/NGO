@@ -149,10 +149,12 @@ const Event = () => {
                         </div>
                     </div>
                 </div>
-                <div className="event-list-container">
+                <div className="Created-event">
+                 <h2 className="el-name" id="sh">My Created Event List</h2>
+
                     {events.length > 0 && (
+                        
                         <div className="event-list">
-                            <h2 className="el-name" id="sh">My Created Event List</h2>
                             <div className="event-cards">
                                 {events.map((event) => (
                                     <div key={event.id} className="event-card">
@@ -202,7 +204,11 @@ const Event = () => {
                                     </div>
                                 ))}
                             </div>
-                            <div className="parent-container">
+                           
+                        </div>
+                        
+                    )}
+                     <div className="parent-container">
                                 <button className="post-btn" onClick={Post_Events_To_Firebase}>Post</button>
                                 {showAlert && (
                                     <AlertModal
@@ -210,9 +216,7 @@ const Event = () => {
                                         onClose={handleCloseAlert}
                                     />
                                 )}
-                            </div>
-                        </div>
-                    )}
+                     </div>
                 </div>
             </div>
         </div>
