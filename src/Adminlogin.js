@@ -1,31 +1,29 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ref, get } from 'firebase/database';
+import { ref, get, set } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
 import './styles/Admin.css';
-import { NeatConfig, NeatGradient } from "@firecms/neat";
-
-import { database } from './firebase'; // Importing database correctly
+import { NeatGradient } from "@firecms/neat";
+import { database } from './firebase';
 
 function AdminLogin() {
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [showChangePassword, setShowChangePassword] = useState(false); // New state to show/hide the change password form
+  const [newPassword, setNewPassword] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      // Directly reference the 'admin' node
       const adminRef = ref(database, 'admin');
       const snapshot = await get(adminRef);
       const adminData = snapshot.val();
 
       if (adminData) {
         if (adminData.userID === userId && adminData.password === password) {
-          // Successful login
-          navigate('/admin', { state: { adminName: adminData.adminName } }); // Redirect to admin dashboard
-
+          navigate('/admin', { state: { adminName: adminData.adminName } });
           window.location.href = '/admin';
         } else {
           setError('Invalid user ID or password');
@@ -36,6 +34,27 @@ function AdminLogin() {
     } catch (err) {
       setError('Error during login');
       console.error('Login error:', err);
+    }
+  };
+
+  const handleChangePassword = async (e) => {
+    e.preventDefault();
+
+    try {
+      const adminRef = ref(database, 'admin');
+      const snapshot = await get(adminRef);
+      const adminData = snapshot.val();
+
+      if (adminData && adminData.userID === userId) {
+        await set(adminRef, { ...adminData, password: newPassword });
+        setShowChangePassword(false); // Hide change password form after success
+        setError('Password changed successfully! Please log in with your new password.');
+      } else {
+        setError('Invalid user ID');
+      }
+    } catch (err) {
+      setError('Error changing password');
+      console.error('Change password error:', err);
     }
   };
 
@@ -71,7 +90,6 @@ function AdminLogin() {
       resolution: 1
     });
 
-
     return () => gradientRef.current.destroy();
   }, [canvasRef]);
 
@@ -83,38 +101,67 @@ function AdminLogin() {
           top: 0,
           left: 0,
           width: "100%",
-          height: "100vh", // Ensure it covers the full viewport height
-          zIndex: -1, // Place the canvas behind other content
-          margin: 0, // Remove default margin
-          padding: 0  // Remove default padding
+          height: "100vh",
+          zIndex: -1,
+          margin: 0,
+          padding: 0
         }}
         ref={canvasRef}
       />
-      <div style={{ position: "relative", zIndex: 1, display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+      <div style={{ zIndex: 1, display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
         <div style={{ textAlign: "center" }}>
-          <h2 className='adlog'>Admin Login</h2>
-          <form className='adcont' onSubmit={handleLogin} style={{ display: "inline-block", marginTop: "20px" }}>
-            <div>
-              <label>User ID</label>
-              <input
-                type="text"
-                value={userId}
-                onChange={(e) => setUserId(e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <label>Password</label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            <button type="submit">Login</button>
-          </form>
-          {error && <p>{error}</p>}
+          {!showChangePassword ? (
+            <>
+              <form className='adcont' onSubmit={handleLogin} style={{ display: "inline-block", marginTop: "20px" }}>
+              <h2 className='adlog'>Admin Login</h2>
+
+                <div>
+                  <label>User ID</label>
+                  <input
+                    type="text"
+                    value={userId}
+                    onChange={(e) => setUserId(e.target.value)}
+                    required
+                  />
+                </div>
+                <div>
+                  <label>Password</label>
+                  <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+                <button type="submit">Login</button>
+                <span className='chg-pass' onClick={() => setShowChangePassword(true)} >
+                  Change Password
+                </span>
+              </form>
+              {error && <p>{error}</p>}
+            </>
+          ) : (
+            <>
+              <form className='adcont' onSubmit={handleChangePassword} style={{ display: "inline-block", marginTop: "20px" }}>
+                <div>
+                <h2 className='adlog'>Change Password</h2>
+
+                  <input
+                    type="password"
+                    placeholder='Enter a New Password'
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                    required
+                  />
+                </div>
+                <button type="submit">Change Password</button>
+                <span onClick={() => setShowChangePassword(false)} className='bck'>
+                  Back to Login
+                </span>
+              </form>
+              {error && <p>{error}</p>}
+            </>
+          )}
         </div>
       </div>
     </div>
