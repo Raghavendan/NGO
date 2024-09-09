@@ -91,8 +91,8 @@ function AdminDash() {
                         <img id='adicon' src='https://cdn-icons-png.flaticon.com/128/1041/1041916.png' alt="Chat Icon" />
                     </div>
                     <div id='headerleft'>
-                        <span>Notification</span>
-                        <img id='adicon' src='https://cdn-icons-png.flaticon.com/128/13171/13171072.png' alt="Notification Icon" />
+                        <span>Post</span>
+                        <img id='adicon' src='https://cdn-icons-png.flaticon.com/128/8103/8103709.png' alt="Notification Icon" />
                     </div>
                 </div>
             </div>

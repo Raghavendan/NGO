@@ -1,42 +1,62 @@
 /* General styles for the container */
 .Lapp {
-  margin-top: -100px;
+  position: relative;
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-color: #fff;
+  height: 100%;
+  margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
 }
 
+
+
 /* Styling the row containing the SignUp/Login toggle */
 .row {
+  position: absolute;
+  top: 0px;
+  margin-top: 40px;
+  left: 50%;
+  width: 250px;
+  transform: translateX(-50%);
   display: flex;
+  background: #3E42A6;
+  padding: 10px;
   justify-content: center;
+  border-radius: 1rem;
+  z-index: 1; /* Ensure it stays above the video */
 }
 
-.pointer {
+.pointer, .activeColor {
   padding: 10px 20px;
-  margin: 0 10px ;
+  margin: 0 10px;
+  font-weight: 550;
   cursor: pointer;
-  color: #555;
-  border-bottom: 2px solid transparent;
+  color: white;
+  transition: all 1.5s ease;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .activeColor {
-  padding: 10px 20px;
-  margin: 0 10px;
-  cursor: pointer;
   color: #3E42A6;
-  border-bottom: 2px solid #3E42A6;
+  background: white;
+  border: 1px solid #3E42A6;
+  border-radius: 15px;
+}
+
+.pointer {
+  border-bottom: 2px solid transparent;
 }
 
 /* Form heading */
 h2 {
-  margin-top: 20px;
-  margin-bottom: 20px;
   color: #333;
+  padding: 10px;
 }
 
 /* Form styling */
@@ -48,11 +68,12 @@ form {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 400px;
+  margin-top: 50px; /* Adds some space between the form and the row */
 }
 
 input {
-  width: 100%;
+  width: 80%;
   padding: 10px;
   margin-bottom: 5px;
   border: 1px solid #ccc;
@@ -63,11 +84,11 @@ input {
 input:focus {
   border-color: #3E42A6;
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 5px #3E42A6;
 }
 
 button {
-  width: 100%;
+  width: 40%;
   padding: 10px;
   background-color: #3E42A6;
   color: white;
@@ -80,10 +101,32 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+.g{
+  width: 70%;
+  padding: 10px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items:center ;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 1rem;
+  color: #3E42A6;
+  gap: 10px;
+  border: #3E42A6 solid 1px ;
+}
+.gb{
+  width: 20px;
+  height: 20px;
+}
+.footer{
+  margin: 10px;
+  cursor: pointer;
+}
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-  .App {
+  .Lapp {
     padding: 20px;
   }
 
@@ -98,5 +141,6 @@ button:hover {
 
   .pointer, .activeColor {
     margin-bottom: 10px;
+    height: auto;
   }
 }
