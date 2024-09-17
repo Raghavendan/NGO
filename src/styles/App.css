@@ -82,7 +82,6 @@ nav a:hover {
 .nav-close-btn {
   display: none; /* Hide the close button by default */
 }
-
 /* Buttons (Admin and Volunteer) */
 .icon-buttons {
   display: flex;
@@ -126,18 +125,22 @@ nav a:hover {
   font-size: 16px;
 }
 
+
 /* Mobile Responsive Navbar */
 @media only screen and (max-width: 1024px) {
   .nav-btn {
-    display: block; /* Show toggle buttons in mobile view */
+    display: block;
+    height: 50px;
+    width: 20px;
+     /* Show toggle buttons in mobile view */
   }
 
   nav {
     position: fixed;
     top: -100vh;
-    left: 0;
-    height: 100%;
-    width: 100%;
+    right:  0;
+    height: 50%;
+    width: 60%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -153,124 +156,43 @@ nav a:hover {
   .nav-close-btn {
     display: block; /* Show close button in mobile view */
     position: absolute;
-    top: 2rem;
-    right: 1.5rem;
+    top: 1rem;
+    right: 2rem;
     font-size: 2rem;
   }
 
   nav a {
-    font-size: 1.5rem; /* Increase font size for better touch targets */
+    font-size: 1.5rem;
+    margin: 10px;
   }
-
-  header {
-    padding: 0 1rem;
+  .logo-image{
+    width: 50px;
+    position: absolute;
+    height: 50px;
+    margin-right: 20px;
+    left: 20px;
   }
-}
-
-/* Tablet View Adjustments */
-@media only screen and (max-width: 768px) {
-  header {
-    padding: 0 1.5rem;
-    height: 70px; /* Adjust the height for tablets */
+  .logoname{
+    width: 100px;
+    margin-left: 50px;
   }
-
-  .logo-section {
-    flex-direction: column;
-    align-items: flex-start;
+ 
+  #faicon{
+    height: 25px;
+    width: 25px;
   }
-
-  .logoname {
-    font-size: 1.3rem;
+  .small{
+    display: none;
   }
-
-  .nav-btn {
-    font-size: 2rem;
-  }
-
-  nav a {
-    font-size: 1.3rem;
-    padding: 0.4rem;
-  }
-
-  .icon-buttons {
-    justify-content: center;
-    margin-top: 1rem;
-  }
-
-  .btn-1, .btn-2 {
-    padding-inline: 15px;
+  .btn-1,.btn-2{
+    width: fit-content;
+    height: fit-content;
   }
 }
 
-/* Small Mobile Screen Adjustments */
-@media only screen and (max-width: 400px) {
-  header {
-    display: grid;
-    place-items: center;
-    padding: 0 1rem;
-    height: 60px;
-  }
-
-  .logo-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .logoname {
-    font-size: 1.1rem;
-  }
-
-  .nav-btn {
-    font-size: 1.8rem;
-  }
-
-  nav a {
-    font-size: 1.2rem;
-  }
-
-  .icon-buttons {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .btn-1, .btn-2 {
-    width: 90%; /* Full width buttons */
-    padding: 0.8rem;
-    font-size: 1.1rem;
-  }
-
-  #faicon {
-    height: 18px;
-    width: 18px;
-  }
-}
-
-/* Toggle Button (Hamburger Menu) */
-.icon-btn {
-  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out, color 0.3s ease-in-out;
-  height: 50px;
-  width: 50px;
-  border-radius: 5px;
-  background: white;
-  color: #3E42A6;
-  border: none;
+.icon-buttons {
   display: flex;
   align-items: center;
-  justify-content: center;
-  border: solid white 1px;
-  cursor: pointer;
-  font-size: 1.5rem;
-  margin-left: 1rem;
+  justify-content: flex-end;
 }
 
-.icon-btn:hover {
-  background-color: #3E42A6;
-  color: white;
-}
-
-/* Body Padding to Avoid Content Behind Navbar */
-body {
-  padding-top: 80px;
-}
