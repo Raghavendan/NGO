@@ -78,6 +78,7 @@ function AdminDash() {
             <div className='admin__header'>
                 <img className='adlogo' src={ico} alt="Admin Logo" />
                 {adminName ? <h3>Vanakkam🙏 {adminName} </h3> : <p>Loading...</p>}                <div className='headerleft'>
+                    <div></div>
                     <div id='headerleft'>
                         <span>{time}</span>
                         <img id='adicon' src="https://cdn-icons-png.flaticon.com/128/2784/2784459.png" alt="Clock Icon" />

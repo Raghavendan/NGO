@@ -94,7 +94,7 @@ function AdminLogin() {
   }, [canvasRef]);
 
   return (
-    <div style={{ position: "relative", height: "100vh", marginTop: "-80px" }}>
+    <div style={{ position: "relative", height: "100%" }}>
       <canvas
         style={{
           position: "absolute",
@@ -112,7 +112,7 @@ function AdminLogin() {
         <div style={{ textAlign: "center" }}>
           {!showChangePassword ? (
             <>
-              <form className='adcont' onSubmit={handleLogin} style={{ display: "inline-block", marginTop: "20px" }}>
+              <form className='adcont' onSubmit={handleLogin} style={{ display: "inline-block", marginTop: "0px" }}>
               <h2 className='adlog'>Admin Login</h2>
 
                 <div>

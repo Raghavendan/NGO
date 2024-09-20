@@ -17,54 +17,60 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
-    flex-wrap: wrap; /* Allows content to wrap on smaller screens */
+    gap:40px;
+    margin-block: 40px;
+    flex-wrap: wrap; 
   }
+
   
   #conttwo1 {
-    height: 200px; /* Reduced size for better mobile fit */
+    height: 200px; 
     width: 200px;
-    margin: 50px;
-    background: #3E42A6;
-    border-radius: 20px;
+    margin: 0px;
+    border-radius: 39px;
+    background: linear-gradient(145deg, #383b95, #4247b2);   
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column; /* Ensures inner content is centered vertically */
     justify-content: center;
     align-items: center;
-    transition: border 0.5s, color 0.5s; /* Smooth transitions */
+
   }
-  
+ 
   #imgcont1 {
-    height: 60px; /* Reduced size */
+    height: 60px;
     width: 60px;
-    margin: 0; /* Removed unnecessary margins */
-    transition: transform 0.3s; /* Smooth transform effect */
+    filter: invert(100%) sepia(0%) saturate(7497%) hue-rotate(327deg) brightness(102%) contrast(105%);
+
+    margin: 0; 
   }
   
   #txtcont1 {
-    font-size: 1rem; /* Use rem for scalability */
+    font-size: 1rem; 
     font-weight: 600;
     margin-top: 20px;
     color: white;
-    text-align: center; /* Ensures text is centered */
-    padding: 10px; /* Added padding for better spacing */
-    transition: color 0.5s; /* Smooth color transition */
+    text-align: center; 
+    padding: 10px; 
+    transition: color 0.5s; 
   }
   
   #conttwo1:hover {
-    border: solid 1px #3E42A6;
-    color: blue;
+    background: linear-gradient(145deg, #0b13a7, #4248eb);
     cursor: pointer;
-    box-shadow: rgb(179, 177, 177) 0px 8px 8px 5px;
+    box-shadow: rgb(117, 116, 116) 0px 4px 4px 2px;
   }
   
   
   
   #conttwo1:hover #imgcont1 {
-    transform: scale(1.4); /* Scale image on hover */
+    transition: 1s;
+    transform: scale(1.25); /* Scale image on hover */
   }
   #conttwo1:hover #txtcont1 {
-    transform: scale(1.1); /* Scale image on hover */
+    transition: 1s;
+
+    transform: scale(1.15); /* Scale image on hover */
   }
   
   
@@ -81,13 +87,20 @@
     }
   
     #conttwo1 {
-      width: 120px; /* Adjusted for mobile */
+      display: grid;
+      place-items:center;
+      width: 200px; /* Adjusted for mobile */
       height: 120px;
+      padding: 10px;
     }
   
     #imgcont1 {
       width: 60px; /* Further reduced size */
       height: 60px;
+    }
+    #txtcont1{
+      margin: -10px;
+      font-size: 1rem;
     }
   
    

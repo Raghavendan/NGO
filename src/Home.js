@@ -94,16 +94,24 @@ const Home = () => {
       </div>
       <div className='conttwo'>
         <div id='conttwo1'>
-          <img id='imgcont1' src={volunteer}></img>
-          <span id='txtcont1'>Volunteers</span>
+          <img id='imgcont1' src={"https://cdn-icons-png.flaticon.com/128/3045/3045330.png"}></img>
+          <span id='txtcont1'>Join as Volunteer</span>
         </div>
         <div id='conttwo1'>
-          <img id='imgcont1' src={paint}></img>
-          <span id='txtcont1'>Wall Paintings</span>
+          <img id='imgcont1' src={"https://cdn-icons-png.flaticon.com/128/7857/7857917.png"}></img>
+          <span id='txtcont1'>Works of Karpi</span>
         </div>
         <div id='conttwo1'>
-          <img id='imgcont1' src={ser}></img>
-          <span id='txtcont1'>Services</span>
+          <img id='imgcont1' src={"https://cdn-icons-png.flaticon.com/128/6890/6890433.png"}></img>
+          <span id='txtcont1'>Credited Donations</span>
+        </div>
+        <div id='conttwo1'>
+          <img id='imgcont1' src={"https://cdn-icons-png.flaticon.com/128/8382/8382960.png"}></img>
+          <span id='txtcont1'>List of Services</span>
+        </div>
+        <div id='conttwo1'>
+          <img id='imgcont1' src={"https://cdn-icons-png.flaticon.com/128/8799/8799677.png"}></img>
+          <span id='txtcont1'>Explore more</span>
         </div>
 
       </div>
