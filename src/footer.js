@@ -7,7 +7,7 @@ const Footer = () => {
     <footer>
       <div className="footer-container">
         <div className="footer-section">
-          <img src={ico} alt="KARPI Logo" className="logo-image" /><br></br>
+          <img src={ico}  className="fimage" /><br></br>
           <span className='foottit'>KARPI</span>
           <p>Educate Beyond the Books</p>
         </div>

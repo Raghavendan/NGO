@@ -37,24 +37,39 @@ footer {
   /* Base styles for the link */
   transition: all 0.5s ease-in-out; /* Adds a 0.5s smooth transition effect for all properties */
 }
-.footer-section a:hover { 
-  color: #6582f6;
-  text-shadow: 2px 2px 5px black; /* Adds a subtle shadow effect */
+.fimage{
+  float: center;
+  display: inline;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
 }
 
 
 .social-icons { 
-  margin: 20px;
- 
+  margin: 20px; 
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
 .social-icons a {
-  color: white;
+  display: grid;
+  place-items: center;
   font-size: 1.5rem;
+  height: 40px;
+  width: 40px;
+
 }
+.social-icons a:hover{
+  background: white;
+  color: #3E42A6;
+  border-radius: 50%;
+  padding: 5px 5px 5px 5px;
+
+}
+
 
 .footer-bottom {
   background-color: #3E42A6;
@@ -62,9 +77,10 @@ footer {
   margin-bottom: -20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 460px) {
   .footer-container {
     flex-direction: column;
     align-items: center;
   }
+  
 }
