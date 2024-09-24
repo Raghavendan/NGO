@@ -1,13 +1,13 @@
 import React, {useRef,useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import './styles/VolunteerSignup.css';
+import './VolunteerSignup.css';
 import { initializeApp } from "firebase/app";
 import { FcGoogle } from "react-icons/fc";
 import { NeatGradient } from "@firecms/neat";
 
 import { getAuth, signInWithEmailAndPassword, updatePassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { getDatabase, ref, get, set } from 'firebase/database';
-import AlertModal from './AlertModal'; // Import the AlertModal component
+import AlertModal from '../Dialog box/AlertModal'; // Import the AlertModal component
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -193,81 +193,81 @@ function VSignup() {
   }, [canvasRef]);
 
   return (
-    <div style={{ position: "relative", height: "100vh", marginTop: "-80px" }}className="App">
-      <canvas
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100vh",
-          zIndex: -1,
-          margin: 0,
-          padding: 0
-        }}
-        ref={canvasRef}
-      />
-      <div className='Lapp'>
-      
-       
+    <div className="App">
+          <canvas
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100vh",
+              zIndex: -1,
+              margin: 0,
+              padding: 0
+            }}
+            ref={canvasRef}
+          />
+        <div className='Lapp'>
+          
+          
 
-      
-      <div className='row'>
-        <div className={login === false ? 'activeColor' : 'pointer'} onClick={() => setLogin(false)}>SignUp</div>
-        <div className={login === true && !forgotPassword ? 'activeColor' : 'pointer'} onClick={() => setLogin(true)}>Login</div>
-      </div>
-      {/* Update the heading conditionally */}
-      
-      <form onSubmit={(e) => handleSubmit(e, login ? 'login' : 'signup')}>
-      <h2>{forgotPassword ? 'Reset Password' : login ? 'Login' : 'SignUp'}</h2>
-        {!login && (
-          <>
-            <input name='username' placeholder='Username' /><br />
-            <input name='mobile' placeholder='Mobile' /><br />
-          </>
-        )}
-        <input name='emailOrMobile' placeholder={login ? 'Email or Mobile' : 'Email'} required /><br />
-        {!forgotPassword && (
-          <>
-            <input name='password' type='password' placeholder='Password' required={!forgotPassword} /><br />
-          </>
-        )}
-        {forgotPassword && resetSuccess && (
-          <>
-            <input name='newPassword' type='password' placeholder='Enter new password' required /><br />
-          </>
-        )}
-        <button type="submit">
-          {forgotPassword && resetSuccess ? 'Update Password' : forgotPassword ? 'Verify User' : login ? 'Login' : 'Signup'}
-        </button>
-        {/* Google Sign-In Button */}
-          {login && !forgotPassword && (
-            <div className="g"  onClick={handleGoogleSignIn}>
-              <FcGoogle className='gb' type="button"></FcGoogle>
-              <span style={{fontWeight: "550"}}>Login with Google</span>
-              
+          
+              <div className='row'>
+                <div className={login === false ? 'activeColor' : 'pointer'} onClick={() => setLogin(false)}>SignUp</div>
+                <div className={login === true && !forgotPassword ? 'activeColor' : 'pointer'} onClick={() => setLogin(true)}>Login</div>
+              </div>
+          {/* Update the heading conditionally */}
+          
+          <form onSubmit={(e) => handleSubmit(e, login ? 'login' : 'signup')}>
+            <h2>{forgotPassword ? 'Reset Password' : login ? 'Login' : 'SignUp'}</h2>
+              {!login && (
+                <>
+                  <input name='username' placeholder='Username' /><br />
+                  <input name='mobile' placeholder='Mobile' /><br />
+                </>
+              )}
+              <input name='emailOrMobile' placeholder={login ? 'Email or Mobile' : 'Email'} required /><br />
+              {!forgotPassword && (
+                <>
+                  <input name='password' type='password' placeholder='Password' required={!forgotPassword} /><br />
+                </>
+              )}
+              {forgotPassword && resetSuccess && (
+                <>
+                  <input name='newPassword' type='password' placeholder='Enter new password' required /><br />
+                </>
+              )}
+              <button type="submit">
+                {forgotPassword && resetSuccess ? 'Update Password' : forgotPassword ? 'Verify User' : login ? 'Login' : 'Signup'}
+              </button>
+              {/* Google Sign-In Button */}
+                {login && !forgotPassword && (
+                  <div className="g"  onClick={handleGoogleSignIn}>
+                    <FcGoogle className='gb' type="button"></FcGoogle>
+                    <span style={{fontWeight: "550"}}>Login with Google</span>
+                    
+                  </div>
+                )}
+          </form>
+
+          
+
+          {/* Forgot Password section */}
+          {!forgotPassword && login && (
+            <div className="footer" onClick={() => setForgotPassword(true)}>
+              Forgot Password
             </div>
           )}
-      </form>
 
-      
+          {/* Back to Login link below Reset Password */}
+            {forgotPassword && (
+              <div className="footer" onClick={() => setForgotPassword(false)}>
+                Back to Login
+              </div>
+            )}
 
-      {/* Forgot Password section */}
-      {!forgotPassword && login && (
-        <div className="footer" onClick={() => setForgotPassword(true)}>
-          Forgot Password
+            {showAlert && <AlertModal message={alertMessage} onClose={() => setShowAlert(false)} />}
         </div>
-      )}
-
-      {/* Back to Login link below Reset Password */}
-      {forgotPassword && (
-        <div className="footer" onClick={() => setForgotPassword(false)}>
-          Back to Login
-        </div>
-      )}
-
-      {showAlert && <AlertModal message={alertMessage} onClose={() => setShowAlert(false)} />}
-    </div>
 
     </div>
     

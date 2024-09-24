@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/AlertModal.css';
+import '../Dialog box/AlertModal.css';
 
 function AlertModal({ message, onClose }) {
   return (

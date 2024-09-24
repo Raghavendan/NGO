@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ref, get, set } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
-import './styles/Admin.css';
+import '../Admin/Admin.css';
 import { NeatGradient } from "@firecms/neat";
-import { database } from './firebase';
+import { database } from '../Database/firebase';
 
 function AdminLogin() {
   const [userId, setUserId] = useState('');

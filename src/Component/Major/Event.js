@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
-import "./styles/Event.css";
-import Navbar from "./Navbar";
-import { database, ref, push } from "./firebase";
-import AlertModal from "./AlertModal";
+import "./Event.css";
+import Navbar from "../Nav & Foot/Navbar";
+import { database, ref, push } from "../Database/firebase";
+import AlertModal from "../Dialog box/AlertModal";
 
 const Event = () => {
     const [selectedDate, setSelectedDate] = useState(null);

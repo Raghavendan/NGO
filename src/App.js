@@ -1,15 +1,15 @@
-import './styles/App.css';
-import Navbar from './Navbar';
-import Home from './Home';
-import Event from './Event';
-import Chat from './Chat';
-import Donate from './Donate';
-import About from './About';
-import Footer from './footer';
-import VolunteerSignup from './VSignup';
-import AdminDash from './AdminDash';
-import Adlog from './Adminlogin';
-import PostEvent from './PostEvent';
+import './Component/Nav & Foot/App.css';
+import Navbar from './Component/Nav & Foot/Navbar';
+import Home from './Component/Major/Home';
+import Event from './Component/Major/Event';
+import Chat from './Component/Major/Chat';
+import Donate from './Component/Major/Donate';
+import About from './Component/Major/About';
+import Footer from './Component/Nav & Foot/footer';
+import VolunteerSignup from './Component/Volunteer/VSignup';
+import AdminDash from './Component/Admin/AdminDash';
+import Adlog from './Component/Admin/Adminlogin';
+import PostEvent from './Component/Admin/PostEvent';
 import {BrowserRouter,Routes,Route } from "react-router-dom";
 
 function App() {

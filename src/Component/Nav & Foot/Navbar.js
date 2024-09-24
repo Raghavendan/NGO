@@ -1,7 +1,7 @@
-import './styles/App.css';
+import './App.css';
 import { useRef } from "react";
 import { useNavigate } from 'react-router-dom';
-import ico from "./assets/icon.jpg";
+import ico from "../../assets/icon.jpg";
 import { FaBars, FaTimes, FaUserShield, FaUserFriends } from "react-icons/fa";
 
 function Navbar() {

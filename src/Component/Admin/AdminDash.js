@@ -1,8 +1,8 @@
-import './styles/Admin.css';
+import './Admin.css'
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, onValue } from 'firebase/database';
 import React, { useEffect, useState } from 'react';
-import ico from "./assets/icon.jpg";
+import ico from "../../assets/icon.jpg";
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 

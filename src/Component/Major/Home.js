@@ -3,22 +3,22 @@ import { useNavigate } from "react-router-dom";
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import { FaCaretSquareDown, FaCaretSquareUp } from 'react-icons/fa';
-import './styles/Home.css';
-import Footer from './footer';
+import '../Major/Home.css';
+import Footer from '../Nav & Foot/footer';
 
-import image1 from './assets/1.jpeg';
-import image2 from './assets/2.jpeg';
-import image3 from './assets/3.png';
-import image4 from './assets/4.png';
+import image1 from '../../assets/1.jpeg';
+import image2 from '../../assets/2.jpeg';
+import image3 from '../../assets/3.png';
+import image4 from '../../assets/4.png';
 
-import e1 from './assets/element_1.png';
-import e2 from './assets/element_2.png';
-import e3 from './assets/element_3.png';
-import e4 from './assets/element_4.png';
+import e1 from '../../assets/element_1.png';
+import e2 from '../../assets/element_2.png';
+import e3 from '../../assets/element_3.png';
+import e4 from '../../assets/element_4.png';
 
 
-import overlayImage from './assets/icon.jpg'; // Add your overlay image here
-import Navbar from './Navbar';
+import overlayImage from '../../assets/icon.jpg'; // Add your overlay image here
+import Navbar from '../Nav & Foot/Navbar';
 
 const divStyle = {
   display: 'flex',
