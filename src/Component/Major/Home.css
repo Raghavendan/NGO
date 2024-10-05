@@ -175,7 +175,7 @@ color: #3E42A6;
   
   
   /* Media Query for Mobile View */
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 480px){
     .moto {
       font-size: 1.5rem; /* Reduce font size for small screens */
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
@@ -202,6 +202,19 @@ color: #3E42A6;
       margin: -10px;
       font-size: 1rem;
     }
+    .element{
+      display: flex;
+      justify-content: center;
+      align-items: center;     
+    }
+    .element img{
+      width: 150px;
+      height: 150px;
+    }
+    .text-container p{
+      display: none;
+    }
+    
   
    
   }

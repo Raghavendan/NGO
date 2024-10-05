@@ -96,11 +96,12 @@ function VSignup() {
             throw new Error('No user found with this mobile number');
           }
         }
+        
   
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         setAlertMessage(`Welcome back! You are now logged in.`);
         setShowAlert(true);
-        history('/');
+        history('/volunteerHome');
       } else {
         email = identifier;
         const username = e.target.username?.value;
@@ -152,7 +153,7 @@ function VSignup() {
       }
 
       setShowAlert(true);
-      history('/');
+      history('/volunteerHome');
     } catch (error) {
       setAlertMessage(`Google sign-in failed: ${error.message}`);
       setShowAlert(true);
@@ -207,11 +208,7 @@ function VSignup() {
             }}
             ref={canvasRef}
           />
-        <div className='Lapp'>
-          
-          
-
-          
+        <div className='Lapp'>           
               <div className='row'>
                 <div className={login === false ? 'activeColor' : 'pointer'} onClick={() => setLogin(false)}>SignUp</div>
                 <div className={login === true && !forgotPassword ? 'activeColor' : 'pointer'} onClick={() => setLogin(true)}>Login</div>

@@ -1,0 +1,52 @@
+
+.profile-container {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 20px; /* Add padding for spacing */
+    background-color: #f9f9f9; /* Light background for the profile area */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .profile-header {
+    font-size: 24px; /* Header size */
+    font-weight: bold; /* Bold font */
+    margin-bottom: 20px; /* Space below the header */
+  }
+  
+  .profile-img {
+    display: flex; /* Flexbox layout for image and input */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    margin-bottom: 20px; /* Space below the image section */
+  }
+  
+  .profile-img input {
+    margin-bottom: 10px; /* Space below the input */
+    padding: 8px; /* Padding for input */
+    border: 1px solid #ccc; /* Border for input */
+    border-radius: 5px; /* Rounded corners for input */
+    width: 80%; /* Input width */
+    max-width: 300px; /* Max width */
+  }
+  
+  .profile-img img {
+    width: 150px; /* Width of the profile image */
+    height: 150px; /* Height of the profile image */
+    border-radius: 50%; /* Circular image */
+    object-fit: cover; /* Ensure the image covers the area */
+    border: 2px solid #007bff; /* Border color for image */
+  }
+  
+  .profile-details {
+    font-size: 16px; /* Size for profile details */
+    margin: 10px 0; /* Space around each detail */
+  }
+  
+  .profile-details strong {
+    font-weight: bold; /* Bold for labels */
+    color: #333; /* Dark color for labels */
+  }
+  

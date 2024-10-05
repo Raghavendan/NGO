@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "./Event.css";
-import Navbar from "../Nav & Foot/Navbar";
 import { database, ref, push } from "../Database/firebase";
 import AlertModal from "../Dialog box/AlertModal";
 
@@ -99,7 +98,6 @@ const Event = () => {
 
     return (
         <div className="app">
-            <Navbar />
             <div className="main-container">
                 <div className="calendar-and-event">
                     <div className="calendar-container">

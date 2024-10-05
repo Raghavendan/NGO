@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { ref, onValue } from "firebase/database";
 import { database } from "../Database/firebase";
-import "../Admin/PostEvent.css"; // Create and style this CSS file
-import Navbar from "../Nav & Foot/Navbar"; // Assuming you have a Navbar
+import "../Major/PostEvent.css"; // Create and style this CSS file
+import Menubar from "../Nav & Foot/menubar"; // Assuming you have a Navbar
 
 const PostEvent = () => {
     const [events, setEvents] = useState([]);
@@ -26,7 +26,7 @@ const PostEvent = () => {
 
     return (
         <div className="post-event-page">
-            <Navbar />
+            <Menubar />
             <h2>Volunteer Events</h2>
             <div className="event-list">
                 {events.length > 0 ? (
