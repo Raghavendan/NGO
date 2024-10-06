@@ -183,6 +183,12 @@ nav a:hover {
   border-radius: 10px;
   font-weight: bold;
 }
+.profile-image{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
 /* Show the dropdown when hovering over the profile */
 .profile:hover .profile-dropdown {
