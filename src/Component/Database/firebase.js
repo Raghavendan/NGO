@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { getDatabase, ref, set ,push ,onValue} from 'firebase/database';
 import { getStorage } from "firebase/storage";
 
@@ -35,7 +35,6 @@ function createAdminUser() {
   });
 }
 
-// Call the function to create the admin user
 createAdminUser();
 
 export { database, ref, set, push, onValue ,storage };
