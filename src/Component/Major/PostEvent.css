@@ -1,5 +1,5 @@
 .post-event-page {
-    padding: 20px;
+    padding: 5px;
     text-align: center;
 }
 
@@ -15,7 +15,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 300px;
+    width: 700px;
     text-align: left;
 }
 
@@ -26,12 +26,25 @@
 }
 
 .event-details {
-    padding: 10px;
+    padding: 5px;
 }
 
-.event-date, .event-location, .event-title {
+.event-date {
     display: block;
-    margin: 5px 0;
-    font-weight: bold;
+    background:  #3736368d;
+    color: white;
+    padding: 2px;
+    font-size: 14px;
+    border-radius: 4px;
+    
+}
+.event-location{
+    font-size: 12px;
+    color: rgb(65, 65, 65);
+}
+.event-title{
+    display: block;
+
+
 }
 

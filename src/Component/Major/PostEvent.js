@@ -9,20 +9,20 @@ const PostEvent = () => {
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
-        const eventRef = ref(database, 'events');
-        
-        // Listen for changes in the 'events' node
-        onValue(eventRef, (snapshot) => {
-            const data = snapshot.val();
-            if (data) {
-                const loadedEvents = Object.keys(data).map((key) => ({
-                    id: key,
-                    ...data[key],
-                }));
-                setEvents(loadedEvents);
-            }
-        });
-    }, []);
+    const eventRef = ref(database, 'events');
+    onValue(eventRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+            const loadedEvents = Object.keys(data).map((key) => ({
+                id: key,
+                ...data[key],
+            }));
+            console.log(loadedEvents); // Check photo URLs here
+            setEvents(loadedEvents);
+        }
+    });
+}, []);
+
 
     return (
         <div className="post-event-page">
@@ -35,8 +35,9 @@ const PostEvent = () => {
                             {event.photo && (
                                 <img
                                     src={event.photo}
-                                    alt={event.title}
+                                    alt={event.title || "Event Image"}
                                     className="event-photo"
+                                    onError={(e) => (e.target.src = "/path/to/fallback/image.jpg")}
                                 />
                             )}
                             <div className="event-details">
