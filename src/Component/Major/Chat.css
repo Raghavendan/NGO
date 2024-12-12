@@ -116,10 +116,11 @@
 }
 
 .ic{
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     cursor: pointer;
-    padding: 10px;
+    padding: 1px;
+    margin-block: -3px;
     margin-inline: 10px;
     fill: #3E42A6;
     background: #ffffff;

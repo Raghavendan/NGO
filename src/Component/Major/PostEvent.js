@@ -1,28 +1,63 @@
-// PostEvent.js
 import React, { useEffect, useState } from "react";
-import { ref, onValue } from "firebase/database";
+import { ref, onValue, update } from "firebase/database";
 import { database } from "../Database/firebase";
-import "../Major/PostEvent.css"; // Create and style this CSS file
-import Menubar from "../Nav & Foot/menubar"; // Assuming you have a Navbar
+import "../Major/PostEvent.css";
+import Menubar from "../Nav & Foot/menubar";
 
 const PostEvent = () => {
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
-    const eventRef = ref(database, 'events');
-    onValue(eventRef, (snapshot) => {
-        const data = snapshot.val();
-        if (data) {
-            const loadedEvents = Object.keys(data).map((key) => ({
-                id: key,
-                ...data[key],
-            }));
-            console.log(loadedEvents); // Check photo URLs here
-            setEvents(loadedEvents);
-        }
-    });
-}, []);
+        const eventRef = ref(database, "events");
+        onValue(eventRef, (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                const loadedEvents = Object.keys(data)
+                    .map((key) => ({
+                        id: key,
+                        ...data[key],
+                    }))
+                    .filter((event) => event.title && event.date); // Filter out invalid events
+                setEvents(loadedEvents);
+            }
+        });
+    }, []);
 
+    const handleLike = async (eventId) => {
+        const eventRef = ref(database, `events/${eventId}`);
+        const event = events.find((e) => e.id === eventId);
+
+        if (event) {
+            const updatedLikes = (event.likes || 0) + 1; // Increment like count
+            await update(eventRef, {
+                likes: updatedLikes,
+            });
+
+            setEvents((prevEvents) =>
+                prevEvents.map((e) =>
+                    e.id === eventId ? { ...e, likes: updatedLikes } : e
+                )
+            );
+        }
+    };
+
+    const handleDislike = async (eventId) => {
+        const eventRef = ref(database, `events/${eventId}`);
+        const event = events.find((e) => e.id === eventId);
+
+        if (event) {
+            const updatedDislikes = (event.dislikes || 0) + 1; // Increment dislike count
+            await update(eventRef, {
+                dislikes: updatedDislikes,
+            });
+
+            setEvents((prevEvents) =>
+                prevEvents.map((e) =>
+                    e.id === eventId ? { ...e, dislikes: updatedDislikes } : e
+                )
+            );
+        }
+    };
 
     return (
         <div className="post-event-page">
@@ -41,9 +76,25 @@ const PostEvent = () => {
                                 />
                             )}
                             <div className="event-details">
-                                <span className="event-date">🗓️ {new Date(event.date).toDateString()}</span>
-                                <span className="event-location">🌏 {event.location}</span>
-                                <span className="event-title">{event.title}</span>
+                                <span className="event-date">
+                                    🗓️ {event.date ? new Date(event.date).toDateString() : "Invalid Date"}
+                                </span>
+                                <span className="event-location">🌏 {event.location || "Unknown Location"}</span>
+                                <span className="event-title">{event.title || "Untitled Event"}</span>
+                            </div>
+                            <div className="event-actions">
+                                <button
+                                    onClick={() => handleLike(event.id)}
+                                    className={`act-btn`}
+                                >
+                                    Like {event.likes || 0}
+                                </button>
+                                <button
+                                    onClick={() => handleDislike(event.id)}
+                                    className={`act-btn`}
+                                >
+                                    Dislike {event.dislikes || 0}
+                                </button>
                             </div>
                         </div>
                     ))
