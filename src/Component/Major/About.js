@@ -11,7 +11,7 @@ function About(){
     return(
         <>
             <div className="main">
-            <ul class="background">
+                    <ul class="background">
                         <li></li>
                         <li></li>
                         <li></li>
@@ -28,31 +28,29 @@ function About(){
                         <img src={ico}  className="logo" />
                         <h3>Karpi</h3>
                         <p>Educate Beyond the Books</p>
-                            <div className="right_3">
+                            <div className="right_1">
                                 <IoMdMail className="icon"/><span>info@karpi.org</span>
 
                             </div>
-                            <div className="right_3">
+                            <div className="right_2">
                                 <MdLocalPhone className="icon"/><span>+123 456 7890</span>
 
 
                             </div>
                             <div className="right_3" >
                                 <MdLocationCity className="icon"/>
-                                <span className="add">No. 2A, Second Floor, Vedammal Ave, Dr.Subbaraya Nagar, Kodambakkam, Chennai, Tamil Nadu 600024</span>
-
-
+                                <p className="add">Kodambakkam,Chennai,Tamil Nadu 600024</p>
                             </div>
                         <div className="social-icons">
                         <a href="https://facebook.com/karpiorganisation/" target="_blank" rel="noopener noreferrer">
-    <i className="fab fa-facebook-f"></i>
-</a>
-<a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-    <i className="fab fa-twitter"></i>
-</a>
-<a href="https://instagram.com/karpiorg/" target="_blank" rel="noopener noreferrer">
-    <i className="fab fa-instagram"></i>
-</a>
+                                    <i className="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                                    <i className="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://instagram.com/karpiorg/" target="_blank" rel="noopener noreferrer">
+                                    <i className="fab fa-instagram"></i>
+                                </a>
 
                         </div>
                         <p>&copy; 2024 Karpingo. All rights reserved.</p>

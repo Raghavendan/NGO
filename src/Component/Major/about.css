@@ -165,3 +165,45 @@
   
   }
 
+@media only screen and (max-width:480px){
+    .main{
+        width: 100%;
+        margin-inline: 55px;
+       
+    }
+    .left{
+        display: none;
+    }
+    .right{
+        margin-inline: 20px;
+        
+    }
+    .right p{
+        width: 250%;
+        text-align: center;
+        display: inline;
+        font-size: 15px;
+        
+    }
+    .right_1, .right_2{
+        /* display:flex;
+        justify-items: center;
+        align-items: center; */
+        
+       width: 300%;
+       text-align: center;
+        
+        color: #3E42A6;
+    }
+    .icon{
+        color: #3E42A6;
+        height: 15px;
+        width: 15px;
+    }
+    .right h2{
+        text-align: center;
+    }
+    .right_3{
+        display: none;
+    }
+}
