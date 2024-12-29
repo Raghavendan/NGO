@@ -1,2 +1,0 @@
-App id : 782140d8b1a7a2fb092273c3c0041287
-Secret Key : cfsk_ma_prod_25b3fa01fc656d87ebeb0ff92d3d2a9f_a0e6bb08
