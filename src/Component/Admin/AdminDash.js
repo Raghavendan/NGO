@@ -1,4 +1,4 @@
-import './Admin.css'
+import './Admindash.css'
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, onValue } from 'firebase/database';
 import React, { useEffect, useState } from 'react';
@@ -10,6 +10,7 @@ import { IoHome } from 'react-icons/io5';
 import { MdEvent,MdMiscellaneousServices } from 'react-icons/md';
 import { IoIosChatbubbles } from "react-icons/io";
 
+
 function AdminDash() {
     const [time, setTime] = useState(new Date().toLocaleTimeString());
     const [date, setDate] = useState(new Date().toLocaleDateString());
@@ -19,13 +20,13 @@ function AdminDash() {
 		navigate('/'); 
 	};
     const event = () => {
-		navigate('/event'); // Navigate to the signup page
+		navigate('/event'); 
 	};
     const chat = () => {
-		navigate('/chat'); // Navigate to the signup page
+		navigate('/chat'); 
 	};
     const Services = () => {
-		navigate('/'); // Navigate to the signup page
+		navigate('/'); 
 	  };
     const location = useLocation();
     const { adminName } = location.state || {};
@@ -69,16 +70,21 @@ function AdminDash() {
         // Cleanup function
         return () => {
             clearInterval(timer);
-            unsubscribe(); // Clean up Firebase listener
+            unsubscribe();
         };
     }, [database]);
 
     return (
         <div className='admin'>
-            <div className='admin__header'>
-                <img className='adlogo' src={ico} alt="Admin Logo" />
-                {adminName ? <h3>Vanakkam🙏 {adminName} </h3> : <p>Loading...</p>}                <div className='headerleft'>
-                    <div></div>
+            <section className='admin_header'>
+                <div className='forLogo'>
+                    <img className='adlogo' src={ico} alt="Admin Logo" />
+                </div>
+                <div className='adname'>
+                    {adminName ? <h3>Vanakkam🙏 {adminName} </h3> : <p>Loading...</p>}         
+                </div>
+                <div className='empty'></div>
+                <div className='headerleft'>
                     <div id='headerleft'>
                         <span>{time}</span>
                         <img id='adicon' src="https://cdn-icons-png.flaticon.com/128/2784/2784459.png" alt="Clock Icon" />
@@ -96,20 +102,20 @@ function AdminDash() {
                         <img id='adicon' src='https://cdn-icons-png.flaticon.com/128/8103/8103709.png' alt="Notification Icon" />
                     </div>
                 </div>
-            </div>
+            </section>
             <div className="cont3">
                 <div id="bg1" className="nvol">
                     <span>Volunteers</span>
                     <span>{volunteerCount}</span>
-                    <img id='adicon' src="https://cdn-icons-png.flaticon.com/128/3045/3045363.png" alt="Volunteers Icon" />
+                    <img  src="https://cdn-icons-png.flaticon.com/128/3045/3045363.png" alt="Volunteers Icon" />
                 </div>
                 <div id="bg1" className="nwall">
                     <span>Paintings</span>
-                    <img id='adicon' src="https://cdn-icons-png.flaticon.com/128/11000/11000159.png" alt="Paintings Icon" />
+                    <img  src="https://cdn-icons-png.flaticon.com/128/11000/11000159.png" alt="Paintings Icon" />
                 </div>
                 <div id="bg1" className="ndon">
                     <span>Donations</span>
-                    <img id='adicon' src="https://cdn-icons-png.flaticon.com/128/2618/2618524.png" alt="Donations Icon" />
+                    <img  src="https://cdn-icons-png.flaticon.com/128/2618/2618524.png" alt="Donations Icon" />
                 </div>
             </div>
             <div className="cont4">
