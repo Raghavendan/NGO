@@ -49,6 +49,7 @@ nav {
   display: flex;
   justify-content: center;
   flex: 1;
+  cursor: pointer;
 }
 
 nav a {
@@ -196,6 +197,8 @@ nav a:hover {
 .profile:hover .profile-dropdown {
   display: block;
 }
+
+
 
 
 /* Mobile Responsive Navbar */

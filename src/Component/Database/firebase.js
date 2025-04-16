@@ -1,8 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getDatabase, ref, set ,push ,onValue} from 'firebase/database';
-import { getStorage } from "firebase/storage";
-
+import { getDatabase, ref as dbRef, set, push, onValue } from 'firebase/database';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 var firebaseConfig = {
     apiKey: "AIzaSyAzqHIO-1C4V6uMP6evINH8Mv3Qd81DEcE",
     authDomain: "karpingo-73250.firebaseapp.com",
@@ -20,7 +19,7 @@ const database = getDatabase(app);
 
 
 function createAdminUser() {
-  const adminRef = ref(database, 'admin');
+  const adminRef = dbRef(database, 'admin');
   set(adminRef, {
     userID: "admin001",
     adminName:"Aakash",
@@ -37,4 +36,15 @@ function createAdminUser() {
 
 createAdminUser();
 
-export { database, ref, set, push, onValue ,storage };
+export {
+  firebaseConfig,
+  database,
+  dbRef,
+  set,
+  push,
+  onValue,
+  storage,
+  storageRef,
+  uploadBytes,
+  getDownloadURL
+};

@@ -3,18 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@firecms/neat": "^0.2.2",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^7.0.2",
+    "@mui/material": "^7.0.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "emoji-picker-react": "^4.12.0",
+    "express": "^4.21.1",
     "firebase": "^10.12.5",
+    "i18next": "^24.2.0",
+    "i18next-browser-languagedetector": "^8.0.2",
+    "i18next-http-backend": "^3.0.1",
     "react": "^18.3.1",
     "react-calendar": "^4.8.0",
     "react-dom": "^18.3.1",
+    "react-i18next": "^15.2.0",
     "react-icons": "^5.2.1",
+    "react-mui-sidebar": "^1.5.3",
     "react-scripts": "5.0.1",
     "react-slideshow-image": "^4.3.1",
+    "three": "^0.171.0",
     "three.js": "^0.77.1",
     "web-vitals": "^2.1.4"
   },
@@ -43,6 +56,7 @@
     ]
   },
   "devDependencies": {
-    "react-router-dom": "^6.26.2"
+    "react-router-dom": "^6.26.2",
+    "typescript": "^4.9.5"
   }
 }

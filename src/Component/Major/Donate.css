@@ -1,0 +1,97 @@
+/* Donate.css */
+
+.donate {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .ic {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .title h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .donate-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .cont-amt {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .ini-amt {
+    background-color: #f1f1f1;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .ini-amt:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .don-input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .image-upload-label {
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+  
+  .ic1 {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .emoji-picker {
+    position: absolute;
+    bottom: 80px; /* Adjust based on your layout */
+    right: 20px; /* Adjust based on your layout */
+    z-index: 10;
+  }
+  
+  .donate-btn {
+    padding: 10px;
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .donate-btn:hover {
+    background-color: #218838;
+  }
+  

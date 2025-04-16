@@ -1,0 +1,328 @@
+.sidebar-toggle {
+  width: 5%;
+  font-size: 2rem;
+  position: fixed;
+  top: -10px;
+  left: 18px;
+  background: none;
+  border: none;
+  z-index: 1001;
+  cursor: pointer;
+  color: #333;
+}
+.sidebar-toggle:hover {
+  background: none;
+}
+.adlogo-toggle{
+  width: 80px;
+  height: 80px;
+  margin-block: 10px;
+  border-radius: 50%;
+}
+.adlogo-toggle:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+  box-shadow: #3E42A6 5px 5px 5px 0px;
+}
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 220px;
+  background-color: rgba(255, 255, 255, 0.707);
+  backdrop-filter: blur(5px);
+  color: #3E42A6;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 60px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar div {
+  width: 100%;  
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sidebar .menu-item:hover {
+  background: #3E42A6;
+  color: white;
+}
+
+.sidebar-icon {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+.menu-item {
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.menu-item:first-child {
+  margin-top: 40px;
+}
+
+
+.submenu {
+  background-color: none;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.submenu div {
+  padding-inline: 40px ;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #3E42A6;
+}
+.submenu-item {
+  padding-inline: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #3E42A6;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.submenu-item:hover {
+  transform: scale(1.05);
+  background: #3e41a662;
+  border-radius: 10px;
+  border: solid 1px #3E42A6;
+}
+
+
+
+/* Optional: Hide the old bottom nav if you still have it */
+.cont4 {
+  display: none;
+}
+.admin_header{
+    width: 100%;
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 17px ), repeating-linear-gradient( #3E42A655, #3E42A6 );   
+    text-align: center;
+    display: flex;
+    gap:20px;
+    height: 100px;
+}
+.forLogo{
+    width: 10%;
+}
+.adlogo{
+    width: 80px;
+    height: 80px;
+    margin-block: 10px;
+    border-radius: 50%;
+}
+.adname{
+    width: 20%;
+    font-size: 20px;
+    color: #3E42A6;
+    background: transparent;
+    text-align: center;
+    backdrop-filter: blur(1px);
+    font-weight: bold;
+    margin-left: -40px;
+    margin-block: 40px;
+}
+.empty{
+    width: 10%;
+}
+#adicon{
+    width: 18px;
+    height: 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-inline: 5px;
+}
+span{
+    font-size: 18px;
+    margin-left: 10px;
+}
+.headerleft{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;    
+    gap: 20px;
+    color: white;
+}
+#headerleft{  
+    cursor: pointer; 
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #3E42A6;
+    text-align: center;
+    padding-block: 5px;
+    padding-inline: 10px;
+    border-radius: 20px;
+    gap: 10px;
+}
+.cont3{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    margin-block: 50px;
+}
+#bg1{
+    background: #3E42A6;
+    height: 120px;
+    width: 300px;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+.cont3 img {
+    width: 50px;
+    height: 50px;
+    margin-inline: 20px;
+}
+
+.cont3 span{
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+/* Tablet devices (up to 1024px) */
+@media screen and (max-width: 1024px) {
+    .admin_header {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 15px;
+    }
+  
+    .adname {
+      width: 100%;
+      margin-left: 0;
+      margin-block: 10px;
+      text-align: center;
+    }
+  
+    .headerleft {
+      width: 90%;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+  
+    .cont3 {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+  
+  /* Mobile devices (up to 768px) */
+  @media screen and (max-width: 768px) {
+    .empty {
+      display: none;
+    }
+    .sidebar-toggle {
+      display: block;
+   }
+   .adlogo-toggle{
+     width: 50px;
+     height: 50px;
+     margin-block: 40px;
+ }
+    
+  
+    .adlogo {
+      display: none;
+    }
+  
+    .adname {
+      font-size: 18px;
+      margin-top: -20px;
+    }
+  
+    .headerleft {
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+      border-radius: 5px;
+    }
+    .headerleft #headerleft {
+      width: 40px;
+      height: 40px;
+      font-size: 8px;
+      text-align: center;
+    }
+    #headerleft img{
+        width: 20px;
+        height: 20px;
+    }
+    #headerleft span{
+        display: none;
+    }
+    .cont3 #bg1 {
+      width: 60%;
+      height: 80px;
+      font-size: 14px;
+    }
+  
+   
+  
+    .cont3 img {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .cont3 span {
+      font-size: 16px;
+    }
+  }
+  
+  /* Small mobile devices (up to 480px) */
+  @media screen and (max-width: 480px) {
+    .adname {
+      font-size: 16px;
+    }
+  
+    span {
+      font-size: 16px;
+    }
+  
+    #headerleft {
+      height: auto;
+      font-size: 14px;
+      text-align: center;
+    }
+  
+    #bg1 {
+      width: 100%;
+      font-size: 16px;
+    }
+  
+    .cont3 {
+      margin-block: 20px;
+    }
+  }
+  

@@ -99,38 +99,50 @@ function Chat() {
         ))}
       </div>
 
-      <form className="message-form" onSubmit={handleSendMessage}>
-        <input
-          type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="Type your message..."
-          className="message-input"
-        />
-        
-        <label htmlFor="image-upload" className="image-upload-label">
-        <IoIosImage className='ic' />
-        </label>
-        <input
-          type="file"
-          id="image-upload"
-          accept="image/*"
-          onChange={handleImageUpload}
-          style={{ display: 'none' }}
-        />
+      <div className="message-form" onSubmit={handleSendMessage}>
+        <div className='mf1'>
+          <input
+            type="text"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder="Type your message..."
+            className="message-input"
+          />
+        </div>
+        <div className='mf2'>
+            <label htmlFor="image-upload" className="image-upload-label">
+            <IoIosImage className='ic' />
+            </label>
+            <input
+              type="file"
+              id="image-upload"
+              accept="image/*"
+              onChange={handleImageUpload}
+              style={{ display: 'none' }}
+            />
 
-        <MdOutlineEmojiEmotions className='ic' type="button " onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
-          
-        </MdOutlineEmojiEmotions >
+            <MdOutlineEmojiEmotions className='ic2' type="button " onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
 
-        {showEmojiPicker && (
-          <div className="emoji-picker">
-            <EmojiPicker  onEmojiClick={handleEmojiClick} />
-          </div>
-        )}
+            {showEmojiPicker && (
+              <div className="emoji-picker">
+                <EmojiPicker  onEmojiClick={handleEmojiClick} />
+              </div>
+            )}
+              
+            </MdOutlineEmojiEmotions >
+        </div>
+        <div className='mf3'>
+            <button type="submit" className="send-button">Send</button>
+
+        </div>
+
         
-        <button type="submit" className="send-button">Send</button>
-      </form>
+        
+        
+        
+        
+        
+      </div>
     </div>
   );
 }

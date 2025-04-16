@@ -119,9 +119,9 @@ color: #3E42A6;
 
 .show-more-btn {
   width: max-content;
-  background-color: #3E42A6;
-  color: white;
-  border: none;
+  color: #3E42A6;
+  background: white;
+  border: solid 1px #3E42A6;
   font-size: 18px;
   border-radius: 5px;
   cursor: pointer;
@@ -137,7 +137,7 @@ color: #3E42A6;
 }
 
 .show-more-btn:hover {
-  background-color: #0056b3;
+  background:none ;
 }
 
 /*elements*/

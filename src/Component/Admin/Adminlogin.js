@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ref, get, set } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
 import '../Admin/Admin.css';
-import { NeatGradient } from "@firecms/neat";
+// import { NeatGradient } from "@firecms/neat";
 import { database } from '../Database/firebase';
 
 function AdminLogin() {
@@ -61,41 +61,41 @@ function AdminLogin() {
   const canvasRef = useRef(null);
   const gradientRef = useRef(null);
 
-  useEffect(() => {
-    if (!canvasRef.current) return;
+  // useEffect(() => {
+  //   if (!canvasRef.current) return;
 
-    gradientRef.current = new NeatGradient({
-      ref: canvasRef.current,
-      colors: [
-        { color: "#3E42A6", enabled: true },
-        { color: "#FFFFFF", enabled: true },
-        { color: "#3E42A6", enabled: true },
-        { color: "#6F74D6", enabled: true },
-        { color: "#f5e1e5", enabled: false }
-      ],
-      speed: 5,
-      horizontalPressure: 3,
-      verticalPressure: 6,
-      waveFrequencyX: 1,
-      waveFrequencyY: 2,
-      waveAmplitude: 3,
-      shadows: 0,
-      highlights: 2,
-      colorBrightness: 1,
-      colorSaturation: 7,
-      wireframe: false,
-      colorBlending: 8,
-      backgroundColor: "#003FFF",
-      backgroundAlpha: 1,
-      resolution: 1
-    });
+  //   gradientRef.current = new NeatGradient({
+  //     ref: canvasRef.current,
+  //     colors: [
+  //       { color: "#3E42A6", enabled: true },
+  //       { color: "#FFFFFF", enabled: true },
+  //       { color: "#3E42A6", enabled: true },
+  //       { color: "#6F74D6", enabled: true },
+  //       { color: "#f5e1e5", enabled: false }
+  //     ],
+  //     speed: 5,
+  //     horizontalPressure: 3,
+  //     verticalPressure: 6,
+  //     waveFrequencyX: 1,
+  //     waveFrequencyY: 2,
+  //     waveAmplitude: 3,
+  //     shadows: 0,
+  //     highlights: 2,
+  //     colorBrightness: 1,
+  //     colorSaturation: 7,
+  //     wireframe: false,
+  //     colorBlending: 8,
+  //     backgroundColor: "#003FFF",
+  //     backgroundAlpha: 1,
+  //     resolution: 1
+  //   });
 
-    return () => gradientRef.current.destroy();
-  }, [canvasRef]);
+  //   return () => gradientRef.current.destroy();
+  // }, [canvasRef]);
 
   return (
     <div style={{ position: "relative", height: "100%" }}>
-      <canvas
+      {/* <canvas
         style={{
           position: "absolute",
           top: 0,
@@ -107,7 +107,7 @@ function AdminLogin() {
           padding: 0
         }}
         ref={canvasRef}
-      />
+      /> */}
       <div style={{ zIndex: 1, display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
         <div style={{ textAlign: "center" }}>
           {!showChangePassword ? (

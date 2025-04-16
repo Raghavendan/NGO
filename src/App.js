@@ -10,6 +10,8 @@ import AdminDash from './Component/Admin/AdminDash';
 import Adlog from './Component/Admin/Adminlogin';
 import PostEvent from './Component/Major/PostEvent';
 import VolunteerProfile from './Component/Volunteer/VolunteerProfile';
+import VolunteerList from './Component/Admin/ManVolunteer';
+import NewVolunteer from './Component/Admin/NewVol';  
 import {BrowserRouter,Routes,Route } from "react-router-dom";
 
 function App() {
@@ -24,6 +26,11 @@ function App() {
               <Route path="/post" element={<PostEvent/>}/>
               <Route path="/volunteerHome" element={<Volunteerhome/>}/>
               <Route path="/volunteerProfile" element={<VolunteerProfile/>}/>
+              <Route path="/Admin/ManageVolunteers" element={<VolunteerList/>}/>
+              <Route path="/Admin/AddVolunteers" element={<NewVolunteer/>}/>
+
+
+
 
               
 

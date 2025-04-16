@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "./Event.css";
-import { database, ref, push } from "../Database/firebase";
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
+import { database, dbRef, push } from "../Database/firebase";
 import AlertModal from "../Dialog box/AlertModal";
 
 const Event = () => {
@@ -12,6 +13,8 @@ const Event = () => {
     const [photoUrl, setPhotoUrl] = useState(null);
     const [location, setLocation] = useState("");
     const [showAlert, setShowAlert] = useState(false);
+
+    const storage = getStorage();
 
     const Date_Click_Fun = (date) => {
         setSelectedDate(date);
@@ -31,43 +34,75 @@ const Event = () => {
         setLocation(event.target.value);
     };
 
-    const Create_Event_Fun = () => {
-        if (selectedDate && eventName) {
-            let newPhotoUrl = null;
-
-            if (photo && (photo instanceof File || photo instanceof Blob)) {
-                newPhotoUrl = URL.createObjectURL(photo);
+    const Create_Event_Fun = async () => {
+        if (selectedDate && eventName && photo) {
+            try {
+                // Reference for the image in Firebase Storage
+                const photoRef = storageRef(storage, `VolunterEvents/${Date.now()}_${photo.name}`);
+                
+                // Upload the file
+                const snapshot = await uploadBytes(photoRef, photo);
+                
+                // Get the file's permanent URL
+                const newPhotoUrl = await getDownloadURL(snapshot.ref);
+    
+                const newEvent = {
+                    id: new Date().getTime(),
+                    date: selectedDate,
+                    title: eventName,
+                    photo: newPhotoUrl, // Use permanent URL
+                    location: location,
+                };
+    
+                setEvents([...events, newEvent]);
+                setPhotoUrl(newPhotoUrl);
+    
+                // Reset fields
+                setSelectedDate(null);
+                setEventName("");
+                setPhoto(null);
+                setLocation("");
+            } catch (error) {
+                console.error("Error uploading photo:", error);
             }
-
-            const newEvent = {
-                id: new Date().getTime(),
-                date: selectedDate,
-                title: eventName,
-                photo: newPhotoUrl,
-                location: location,
-            };
-
-            setEvents([...events, newEvent]);
-            setPhotoUrl(newPhotoUrl);
-            setSelectedDate(null);
-            setEventName("");
-            setPhoto(null);
-            setLocation("");
         }
     };
 
-    const Post_Events_To_Firebase = () => {
-        events.forEach((event) => {
-            const eventRef = ref(database, 'events');
-            push(eventRef, {
+    const Post_Events_To_Firebase = async () => {
+        for (const event of events) {
+            let photoUrl = event.photo;
+    
+            // Only proceed if the event has a photo to upload
+            if (photo && (photo instanceof File || photo instanceof Blob)) {
+                try {
+                    // Reference for the image in the `VolunterEvents` folder
+                    const photoRef = storageRef(storage, `VolunterEvents/${event.id}_${photo.name}`);
+    
+                    // Upload the file
+                    const snapshot = await uploadBytes(photoRef, photo);
+    
+                    // Get the permanent URL
+                    photoUrl = await getDownloadURL(snapshot.ref);
+                    console.log("Uploading file to VolunterEvents folder...");
+
+                } catch (error) {
+                    console.error("Error uploading image: ", error);
+                    continue; // Skip this event if the upload fails
+                }
+            }
+    
+            // Save the event data to the Realtime Database
+            const eventRef = dbRef(database, "events");
+            await push(eventRef, {
                 id: event.id,
                 date: event.date.toISOString(),
                 title: event.title,
-                photo: event.photo,
+                photo: photoUrl,
                 location: event.location,
             });
-            setShowAlert(true);
-        });
+        }
+    
+        setShowAlert(true);
     };
 
     const handleCloseAlert = () => {
@@ -159,9 +194,10 @@ const Event = () => {
                                         <div className="event-card-body">
                                             {event.photo && (
                                                 <img
-                                                    src={event.photo}
-                                                    alt={event.title}
-                                                    className="event-photo"
+                                                src={event.photo}
+                                                alt={event.title || "Event Image"}
+                                                className="event-photo"
+                                                onError={(e) => (e.target.src = "/path/to/fallback/image.jpg")}
                                                 />
                                             )}
                                             <div className="event-card-header">

@@ -1,0 +1,72 @@
+.new-vol-container {
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+    border-radius: 12px;
+  }
+  
+  .new-vol-container h2 {
+    color: white;
+    margin-inline: 60px;
+  }
+  
+  .new-vol-container form > div {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: 10px;
+  }
+  .new-vol-container .profile-upload  input{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+  }
+  
+  
+  .new-vol-container input[type="text"],
+  .new-vol-container input[type="email"],
+  .new-vol-container input[type="password"],
+  .new-vol-container input[type="file"] {
+    width: 300px;
+    text-align: center;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  .submit-btn {
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .vol-message {
+    color: green;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+   
+.password-wrapper button{
+    background: none;
+    color: #3E42A6;
+    width: 30px;
+}

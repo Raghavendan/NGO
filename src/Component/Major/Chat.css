@@ -66,15 +66,22 @@
     left: 0;
     right: 0;
     padding: 10px;
-    background: #f1f1f1;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
+}
+.mf1{
+    width: 80%;
 }
 
 .message-input {
     font-size: 1rem;
-    width: 80%;
+    width: 100%;
     height: 40px;
+    margin-inline: 10px;
+}
+.mf2{
+    width: 100px;
+    margin-left: 20px;
 }
 
 .image-upload-label {
@@ -83,8 +90,9 @@
 
 .send-button {
     font-size: 1rem;
-    width: 10%;
+    width: 100px;
     height: 40px;
+    margin-inline: 10px;
     cursor: pointer;
 }
 
@@ -114,9 +122,58 @@
 }
 
 .ic{
-    width: 30px;
-    height: 30px;
+    width: 70px;
+    height: 70px;
     cursor: pointer;
     padding: 1px;
+    margin-inline: 10px;
     fill: #3E42A6;
+   
+}
+.ic2{
+    width: 40px;
+    height: 23px;
+    fill: #3E42A6;  
+    cursor: pointer;
+
+
+
+}
+.mf3{
+    width: 125px;
+    margin-right: 20px;
+}
+
+@media only screen and (max-width: 480px) {
+    .message-form{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        gap: 0;
+    }
+    .message-input{
+        display: block;
+        width: 220px;
+        margin-left: -5px;
+    }
+    .mf2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: -5px;
+    }
+    .ic2, .ic{
+        width: 25px;
+        height: 20px;
+        gap: 0px;
+        margin-inline: 0px;
+        color: #3E42A6;
+    }
+    .ic2{
+        margin-top: -5px;
+    }
+    .send-button{
+        width: 60px;
+        height: 35px;
+    }
 }

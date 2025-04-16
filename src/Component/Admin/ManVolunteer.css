@@ -1,0 +1,59 @@
+.volunteer-container {
+    padding: 30px;
+    font-family: Arial, sans-serif;
+  }
+ 
+  h2 {
+    background: #3E42A6;
+    border-radius: 10px;
+    margin-inline: 500px;
+    color: white;
+    width: 300px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .volunteer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .volunteer-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+  }
+  
+  .volunteer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  }
+  
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+  .delete-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+  }
+  
+  .delete-btn:hover {
+    background-color: #e60000;
+  }
+   
