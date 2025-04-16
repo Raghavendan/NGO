@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "./Event.css";
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
-import { database, ref, push } from "../Database/firebase";
+import { database, dbRef, push } from "../Database/firebase";
 import AlertModal from "../Dialog box/AlertModal";
 
 const Event = () => {
@@ -92,7 +92,7 @@ const Event = () => {
             }
     
             // Save the event data to the Realtime Database
-            const eventRef = ref(database, "events");
+            const eventRef = dbRef(database, "events");
             await push(eventRef, {
                 id: event.id,
                 date: event.date.toISOString(),

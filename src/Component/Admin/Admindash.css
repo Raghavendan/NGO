@@ -1,3 +1,116 @@
+.sidebar-toggle {
+  width: 5%;
+  font-size: 2rem;
+  position: fixed;
+  top: -10px;
+  left: 18px;
+  background: none;
+  border: none;
+  z-index: 1001;
+  cursor: pointer;
+  color: #333;
+}
+.sidebar-toggle:hover {
+  background: none;
+}
+.adlogo-toggle{
+  width: 80px;
+  height: 80px;
+  margin-block: 10px;
+  border-radius: 50%;
+}
+.adlogo-toggle:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+  box-shadow: #3E42A6 5px 5px 5px 0px;
+}
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 220px;
+  background-color: rgba(255, 255, 255, 0.707);
+  backdrop-filter: blur(5px);
+  color: #3E42A6;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 60px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar div {
+  width: 100%;  
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sidebar .menu-item:hover {
+  background: #3E42A6;
+  color: white;
+}
+
+.sidebar-icon {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+.menu-item {
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.menu-item:first-child {
+  margin-top: 40px;
+}
+
+
+.submenu {
+  background-color: none;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.submenu div {
+  padding-inline: 40px ;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #3E42A6;
+}
+.submenu-item {
+  padding-inline: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #3E42A6;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.submenu-item:hover {
+  transform: scale(1.05);
+  background: #3e41a662;
+  border-radius: 10px;
+  border: solid 1px #3E42A6;
+}
+
+
+
+/* Optional: Hide the old bottom nav if you still have it */
+.cont4 {
+  display: none;
+}
 .admin_header{
     width: 100%;
     background-color: #e5e5f7;
@@ -131,12 +244,18 @@ span{
     .empty {
       display: none;
     }
+    .sidebar-toggle {
+      display: block;
+   }
+   .adlogo-toggle{
+     width: 50px;
+     height: 50px;
+     margin-block: 40px;
+ }
     
   
     .adlogo {
-      width: 60px;
-      height: 60px;
-      margin-top: -5px;
+      display: none;
     }
   
     .adname {

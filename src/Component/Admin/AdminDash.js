@@ -1,12 +1,13 @@
 import './Admindash.css'
 import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from '../Database/firebase';
 import { getDatabase, ref, onValue } from 'firebase/database';
 import React, { useEffect, useState } from 'react';
 import ico from "../../assets/icon.jpg";
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-
-import { IoHome } from 'react-icons/io5';
+import { BiDonateHeart } from "react-icons/bi";
+import { IoPeople } from 'react-icons/io5';
 import { MdEvent,MdMiscellaneousServices } from 'react-icons/md';
 import { IoIosChatbubbles } from "react-icons/io";
 
@@ -14,6 +15,10 @@ import { IoIosChatbubbles } from "react-icons/io";
 function AdminDash() {
     const [time, setTime] = useState(new Date().toLocaleTimeString());
     const [date, setDate] = useState(new Date().toLocaleDateString());
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [volunteerSubmenuOpen, setVolunteerSubmenuOpen] = useState(false);
+    const [eventSubmenuOpen, setEventSubmenuOpen] = useState(false);
+
     const [volunteerCount, setVolunteerCount] = useState(0);
 	const navigate = useNavigate();
     const home = () => {
@@ -29,18 +34,7 @@ function AdminDash() {
 		navigate('/'); 
 	  };
     const location = useLocation();
-    const { adminName } = location.state || {};
-
-
-    // Firebase configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyAzqHIO-1C4V6uMP6evINH8Mv3Qd81DEcE",
-        authDomain: "karpingo-73250.firebaseapp.com",
-        projectId: "karpingo-73250",
-        storageBucket: "karpingo-73250.appspot.com",
-        messagingSenderId: "327982242100",
-        appId: "1:327982242100:web:214191ad5f7aa1062c2d61"
-    };
+    const { adminName } = location.state || {};   
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
@@ -76,6 +70,49 @@ function AdminDash() {
 
     return (
         <div className='admin'>
+            {/* Sidebar Toggle Button (for mobile) */}
+            <button className="sidebar-toggle" onClick={() => setSidebarOpen(!sidebarOpen)}>
+                <img className='adlogo-toggle' src={ico} alt="Admin Logo" />
+
+            </button>
+
+            <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+                {/* VOLUNTEERS */}
+                <div className="menu-item" onClick={() => setVolunteerSubmenuOpen(!volunteerSubmenuOpen)}>
+                    <IoPeople className="sidebar-icon" />
+                    <span>Volunteers</span>
+                </div>
+                {volunteerSubmenuOpen && (
+                    <div className="submenu">
+                        <div className="submenu-item" onClick={() => { navigate('/Admin/ManageVolunteers'); setSidebarOpen(false); }}>Volunteer List</div>
+                        <div className="submenu-item" onClick={() => { navigate('/Admin/AddVolunteers'); setSidebarOpen(false); }}>Add Volunteer</div>
+                    </div>
+                )}
+
+                {/* EVENTS */}
+                <div className="menu-item" onClick={() => setEventSubmenuOpen(!eventSubmenuOpen)}>
+                    <MdEvent className="sidebar-icon" />
+                    <span>Event</span>
+                </div>
+                {eventSubmenuOpen && (
+                    <div className="submenu">
+                        <div className="submenu-item" onClick={() => { navigate('/event-list'); setSidebarOpen(false); }}>Event List</div>
+                        <div className="submenu-item" onClick={() => { navigate('/add-event'); setSidebarOpen(false); }}>Add Event</div>
+                    </div>
+                )}
+
+               {/* OTHERS */}
+                    <div className="menu-item" onClick={() => { chat(); setSidebarOpen(false); }}>
+                        <IoIosChatbubbles className="sidebar-icon" />
+                        <span>Chat</span>
+                    </div>
+
+                    <div className="menu-item" onClick={() => { Services(); setSidebarOpen(false); }}>
+                        <BiDonateHeart className="sidebar-icon" />
+                        <span>Donations</span>
+                    </div>
+                </div>
+            
             <section className='admin_header'>
                 <div className='forLogo'>
                     <img className='adlogo' src={ico} alt="Admin Logo" />
@@ -104,7 +141,7 @@ function AdminDash() {
                 </div>
             </section>
             <div className="cont3">
-                <div id="bg1" className="nvol">
+                <div id="bg1" className="nvol" onClick={() => { navigate('/Admin/ManageVolunteers'); }}>
                     <span>Volunteers</span>
                     <span>{volunteerCount}</span>
                     <img  src="https://cdn-icons-png.flaticon.com/128/3045/3045363.png" alt="Volunteers Icon" />
@@ -118,33 +155,7 @@ function AdminDash() {
                     <img  src="https://cdn-icons-png.flaticon.com/128/2618/2618524.png" alt="Donations Icon" />
                 </div>
             </div>
-            <div className="cont4">
-                <div className="vhome" onClick={home}>
-                    <div id="bg2">
-                        <IoHome id="bg2img"></IoHome>                        
-                        <span id='bg2span'>Home</span>
-                    </div>
-                </div>
-                <div className="vevent" onClick={event}>
-                    <div id="bg2">
-                        <MdEvent id="bg2img"></MdEvent>                        
-                        <span id='bg2span'>Event</span>
-                    </div>
-                </div>
-                <div className="vchat" onClick={chat}>
-                    <div id="bg2">
-                        <IoIosChatbubbles id="bg2img"></IoIosChatbubbles>                        
-                        <span id='bg2span'>Chat</span>
-
-                    </div>
-                </div>
-                <div className="vser" onClick={Services}>
-                    <div id="bg2">
-                        <MdMiscellaneousServices id="bg2img"></MdMiscellaneousServices>                        
-                        <span id='bg2span'>Services</span>
-                    </div>
-                </div>
-            </div>
+           
         </div>
     );
 }
