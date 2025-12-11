@@ -95,7 +95,7 @@ function AdminLogin() {
 
   return (
     <div style={{ position: "relative", height: "100%" }}>
-      <canvas
+      {/* <canvas
         style={{
           position: "absolute",
           top: 0,
@@ -107,7 +107,7 @@ function AdminLogin() {
           padding: 0
         }}
         ref={canvasRef}
-      />
+      /> */}
       <div style={{ zIndex: 1, display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
         <div style={{ textAlign: "center" }}>
           {!showChangePassword ? (
