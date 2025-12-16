@@ -6,6 +6,7 @@
   text-shadow: 2px 2px #050505 ;
 }
 
+
 .adcont {
   display: flex;
   flex-direction: column;
@@ -29,6 +30,7 @@
 .adcont label {
   display: block;
   margin-bottom: 5px;
+  color: #FFFFFF;
 }
 
 .adcont input {

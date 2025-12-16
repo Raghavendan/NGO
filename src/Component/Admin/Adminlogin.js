@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../Admin/Admin.css';
 import { NeatGradient } from "@firecms/neat";
 import { database } from '../Database/firebase';
+import BG from'../../assets/blue_admin_bg.jpg';
 
 function AdminLogin() {
   const [userId, setUserId] = useState('');
@@ -108,7 +109,7 @@ function AdminLogin() {
         }}
         ref={canvasRef}
       /> */}
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+      <div style={{  display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" , backgroundImage:`url(${BG})`, backgroundSize: "cover", backgroundPosition: "center" }}>
         <div style={{ textAlign: "center" }}>
           {!showChangePassword ? (
             <>
