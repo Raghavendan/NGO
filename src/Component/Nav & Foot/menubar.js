@@ -1,14 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { getAuth } from 'firebase/auth';
-import { getDatabase, ref, get } from 'firebase/database'; 
+import { auth, database } from '../Database/firebase.js';
+import { ref, get } from 'firebase/database'; 
 import ico from "../../assets/icon.jpg"; // Default icon
 import { FaBars, FaTimes } from "react-icons/fa";
 import '../Nav & Foot/App.css'; // Import the CSS file for styling
 
 function Menubar() {
   const navRef = useRef();
-  const auth = getAuth();
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [profileImage, setProfileImage] = useState(null); // Set to null initially
@@ -18,8 +17,7 @@ function Menubar() {
 
     if (user) {
       const userId = user.uid;  // Get the current user's uid
-      const db = getDatabase();  // Initialize the Firebase database
-      const userRef = ref(db, `Volunteers/${userId}`);  // Reference to the current user's data
+      const userRef = ref(database, `Volunteers/${userId}`);  // Reference to the current user's data
 
       // Fetch user data from Firebase Realtime Database
       get(userRef)

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { getDatabase, ref, push, onValue } from 'firebase/database';
-import { getAuth } from 'firebase/auth';
+import { auth, database } from '../Database/firebase.js';
+import { ref, push, onValue } from 'firebase/database';
 import EmojiPicker from 'emoji-picker-react';
 import Menubar from "../Nav & Foot/menubar";
 import { MdOutlineEmojiEmotions } from "react-icons/md";
@@ -16,14 +16,11 @@ function Chat() {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const auth = getAuth();
-  const db = getDatabase();
-
   useEffect(() => {
     const fetchUserData = () => {
       const user = auth.currentUser;
       if (user) {
-        const userRef = ref(db, `Volunteers/${user.uid}`);
+        const userRef = ref(database, `Volunteers/${user.uid}`);
         onValue(userRef, (snapshot) => {
           if (snapshot.exists()) {
             const userData = snapshot.val();
@@ -38,13 +35,13 @@ function Chat() {
 
     fetchUserData();
 
-    const messagesRef = ref(db, 'ChatMessages');
+    const messagesRef = ref(database, 'ChatMessages');
     onValue(messagesRef, (snapshot) => {
       const data = snapshot.val();
       const messagesArray = data ? Object.values(data) : [];
       setMessages(messagesArray);
     });
-  }, [auth, db]);
+  }, [auth, database]);
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
@@ -65,7 +62,7 @@ function Chat() {
         imageUrl: selectedImage ? URL.createObjectURL(selectedImage) : null,
       };
 
-      await push(ref(db, 'ChatMessages'), newMessage);
+      await push(ref(database, 'ChatMessages'), newMessage);
       setMessage('');
       setSelectedImage(null);
       setShowEmojiPicker(false);

@@ -1,27 +1,27 @@
 import React, {useRef,useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import './VolunteerSignup.css';
-import { initializeApp } from "firebase/app";
+import { auth, database } from '../Database/firebase.js';
 import { FcGoogle } from "react-icons/fc";
 import { NeatGradient } from "@firecms/neat";
 
-import { getAuth, signInWithEmailAndPassword, updatePassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { getDatabase, ref, get, set } from 'firebase/database';
+import { signInWithEmailAndPassword, updatePassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { ref, get, set } from 'firebase/database';
 import AlertModal from '../Dialog box/AlertModal'; // Import the AlertModal component
 
 // Initialize Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyAzqHIO-1C4V6uMP6evINH8Mv3Qd81DEcE",
-  authDomain: "karpingo-73250.firebaseapp.com",
-  projectId: "karpingo-73250",
-  storageBucket: "karpingo-73250.appspot.com",
-  messagingSenderId: "327982242100",
-  appId: "1:327982242100:web:214191ad5f7aa1062c2d61"
-};
+// const firebaseConfig = {
+//   apiKey: "AIzaSyAzqHIO-1C4V6uMP6evINH8Mv3Qd81DEcE",
+//   authDomain: "karpingo-73250.firebaseapp.com",
+//   projectId: "karpingo-73250",
+//   storageBucket: "karpingo-73250.appspot.com",
+//   messagingSenderId: "327982242100",
+//   appId: "1:327982242100:web:214191ad5f7aa1062c2d61"
+// };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);  // Initialize the auth instance
-const database = getDatabase(app);  // Initialize the database instance
+// const app = initializeApp(firebaseConfig);
+// const auth = getAuth(app);  // Initialize the auth instance
+// const database = getDatabase(app);  // Initialize the database instance
 
 function VSignup() {
   const [login, setLogin] = useState(true);

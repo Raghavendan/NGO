@@ -1,6 +1,6 @@
 import './Admin.css'
-import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, onValue } from 'firebase/database';
+import { database } from '../Database/firebase.js';
+import { ref, onValue } from 'firebase/database';
 import React, { useEffect, useState } from 'react';
 import ico from "../../assets/icon.jpg";
 import { useNavigate } from 'react-router-dom';
@@ -31,26 +31,12 @@ function AdminDash() {
     const { adminName } = location.state || {};
 
 
-    // Firebase configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyAzqHIO-1C4V6uMP6evINH8Mv3Qd81DEcE",
-        authDomain: "karpingo-73250.firebaseapp.com",
-        projectId: "karpingo-73250",
-        storageBucket: "karpingo-73250.appspot.com",
-        messagingSenderId: "327982242100",
-        appId: "1:327982242100:web:214191ad5f7aa1062c2d61"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
-
     useEffect(() => {
         const timer = setInterval(() => {
             setTime(new Date().toLocaleTimeString());
             setDate(new Date().toLocaleDateString());
         }, 1000);
-    
+
         // Firebase Realtime Database: Listen for changes in the volunteer count
         const volunteerCountRef = ref(database, 'Volunteers/'); // Path to Volunteers node
         const unsubscribe = onValue(volunteerCountRef, (snapshot) => {

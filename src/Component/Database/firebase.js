@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-// import { getAuth } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { getDatabase, ref, set ,push ,onValue} from 'firebase/database';
 import { getStorage } from "firebase/storage";
 
@@ -15,7 +15,7 @@ var firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-// const auth = getAuth(app);
+const auth = getAuth(app);
 const storage = getStorage(app);
 const database = getDatabase(app);
 
@@ -38,4 +38,4 @@ function createAdminUser() {
 
 createAdminUser();
 
-export { database, ref, set, push, onValue ,storage };
+export { database, ref, set, push, onValue ,storage, auth };

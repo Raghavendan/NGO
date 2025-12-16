@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { getAuth } from 'firebase/auth';
+import { auth, database, storage } from '../Database/firebase.js';
 import '../Volunteer/VolunteerProfile.css';
 import Menubar from '../Nav & Foot/menubar'
-import { getDatabase, ref, get, set, update } from 'firebase/database';
-import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { ref, get, set, update } from 'firebase/database';
+import { ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 function Profile() {
   const [userData, setUserData] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [updatedData, setUpdatedData] = useState({ username: '', email: '', mobile: '' });
-
-  const auth = getAuth();
-  const database = getDatabase();
-  const storage = getStorage();
 
   useEffect(() => {
     const fetchUserData = async () => {
