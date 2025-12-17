@@ -7,9 +7,12 @@
 .profile-main-container {
   width: 70%;
   height: 100vh;
-  margin-top: 100px;
   margin-inline: 200px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -18,7 +21,7 @@
   align-items: center; 
   justify-content: space-around; 
   padding: 20px;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   border-radius: 20px;
   border: solid  1px #3E42A6;
 
@@ -110,4 +113,98 @@
 .cancel-button {
   background-color: #dc3545;
   color: white;
+}
+
+/* Tablet responsiveness */
+@media (max-width: 768px) {
+  .profile-main-container {
+    width: 90%;
+    margin-inline: 20px;
+    margin-top: 80px;
+  }
+
+  .profile-container {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .picture-container {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .profile-picture {
+    width: 200px;
+    height: 200px;
+  }
+
+  .detail-container {
+    margin-inline-start: 0;
+    text-align: center;
+  }
+
+  .uname, .dc2 {
+    width: 100%;
+  }
+
+  .edit-button {
+    margin-left: 0;
+  }
+
+  .bspace {
+    width: 100%;
+  }
+
+  .profile-input {
+    width: 100%;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .profile-main-container {
+    width: 95%;
+    margin-inline: 10px;
+    margin-top: 60px;
+  }
+
+  .profile-container {
+    padding: 10px;
+    margin-top: 30px;
+  }
+
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+  }
+
+  .uname {
+    padding-block: 15px;
+    font-size: 1em;
+  }
+
+  .dc2 {
+    padding-inline: 15px;
+    padding-block: 15px;
+    margin-block: 20px;
+  }
+
+  .detail-container p {
+    font-size: 0.9em;
+  }
+
+  .bspace {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .profile-input {
+    width: 100%;
+  }
+
+  .edit-button, .save-button, .cancel-button {
+    width: 100%;
+    padding: 10px;
+  }
 }

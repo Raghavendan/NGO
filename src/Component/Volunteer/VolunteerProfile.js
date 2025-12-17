@@ -85,7 +85,7 @@ function Profile() {
     <div className='pro'>
     <Menubar/>
     <div className="profile-main-container">
-      <h3 className="profile-header">Volunteer Profile</h3>
+      <h2 className="profile-header">Volunteer Profile</h2>
       <div className="profile-container">
         <div className="picture-container">
           {userData?.photoUrl && (
@@ -95,11 +95,13 @@ function Profile() {
               className="profile-picture"
             />
           )}
-          <input 
-            type="file" 
-            accept="image/*" 
-            onChange={handleImageUpload} 
-          />
+          {isEditing && (
+            <input 
+              type="file" 
+              accept="image/*" 
+              onChange={handleImageUpload} 
+            />
+          )}
         </div>
         {userData ? (
           <div className="detail-container">
@@ -137,7 +139,7 @@ function Profile() {
               </>
             ) : (
               <>
-                <p className="uname"><strong>Username:</strong> {userData.username}</p>
+                <p className="uname"><strong>VolunteerName:</strong> {userData.username}</p>
                 <div className='dc2'>
                   <p className="mail"><strong>Email:</strong> {userData.email}</p>
                   <p className="mobile"><strong>Mobile:</strong> {userData.mobile}</p>
