@@ -43,7 +43,7 @@ const Event = () => {
 
       const newEvent = {
         id: new Date().getTime(),
-        date: selectedDate,
+        date: selectedDate.getTime(),
         title: eventName,
         photo: newPhotoUrl,
         location: location,
