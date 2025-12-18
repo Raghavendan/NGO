@@ -28,7 +28,6 @@ function createAdminUser() {
     password: "karpingo"
   })
   .then(() => {
-    console.log('Admin Login successfully!');
 
   })
   .catch((error) => {

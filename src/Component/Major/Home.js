@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import { FaCaretSquareDown, FaCaretSquareUp } from 'react-icons/fa';
 import '../Major/Home.css';
 import Footer from '../Nav & Foot/footer';
 
-import image1 from '../../assets/1.jpeg';
-import image2 from '../../assets/2.jpeg';
-import image3 from '../../assets/3.png';
-import image4 from '../../assets/4.png';
+import image1 from '../../assets/1.webp';
+import image2 from '../../assets/2.webp';
+import image3 from '../../assets/3.webp';
+import image4 from '../../assets/4.webp';
 
 import e1 from '../../assets/element_1.png';
 import e2 from '../../assets/element_2.png';
@@ -75,7 +74,6 @@ const galleryImages = [
 ];
 
 const Home = () => {
-  const navigate = useNavigate();
 
   // State to manage showing more images
   const [showMore, setShowMore] = useState(false);
@@ -161,7 +159,7 @@ const Home = () => {
       </div>
       <div className='elements'>
           <div className='element'>
-            <img src={e1}/>
+            <img src={e1} alt="Environmental Stewardship"/>
             <div className="text-container">
               <span>Environmental Stewardship</span>
               <p>Environmental stewardship refers to the responsible management and protection of the natural environment through sustainable practices and conservation efforts. It involves individuals, organizations, and communities taking proactive measures to minimize their ecological footprint, preserve natural resources, and promote biodiversity</p>
@@ -169,21 +167,21 @@ const Home = () => {
           </div>
 
         <div className='element'>
-          <img src={e2}></img>
+          <img src={e2} alt="Extracurricular"></img>
           <div className="text-container">
               <span>Extracurricular</span>
               <p>Extracurricular activities play a vital role in the holistic development of students, complementing their formal education. They provide opportunities for students to explore interests beyond the classroom, such as sports, arts, music, and leadership programs. By participating in these activities, students enhance their social skills, build teamwork and leadership abilities, and develop a sense of responsibility, ultimately fostering well-rounded individuals prepared for future challenges.</p>
           </div>
         </div>
         <div className='element'>
-          <img src={e3}></img>
+          <img src={e3} alt="Fundraising"></img>
           <div className="text-container">
               <span>Fundraising</span>
               <p>Fundraising is crucial for sustaining the operations of an education-based NGO, enabling it to provide essential resources and services to its target communities. This can be achieved through various methods, including grant applications, online crowdfunding campaigns, corporate sponsorships, and community events. Effective fundraising strategies not only generate financial support but also raise awareness about the organization's mission, engage supporters, and build long-term partnerships within the community.</p>
           </div>
         </div>
         <div className='element'>
-          <img src={e4}></img>
+          <img src={e4} alt="Community Involvement"></img>
           <div className="text-container">
               <span>Community Involvement</span>
               <p>Community involvement is essential for the success of an education-based NGO, as it fosters local ownership and engagement in educational initiatives. By actively involving community members in decision-making, program implementation, and volunteer opportunities, the NGO builds trust and strengthens relationships. This collaborative approach not only enhances the relevance of educational programs but also empowers the community to take charge of their own development.</p>

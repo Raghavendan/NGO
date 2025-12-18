@@ -98,7 +98,7 @@ function VSignup() {
         }
         
   
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        await signInWithEmailAndPassword(auth, email, password);
         setAlertMessage(`Welcome back! You are now logged in.`);
         setShowAlert(true);
         history('/volunteerHome');

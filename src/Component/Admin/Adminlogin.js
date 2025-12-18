@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../Admin/Admin.css';
 import { NeatGradient } from "@firecms/neat";
 import { database } from '../Database/firebase';
-import BG from'../../assets/blue_admin_bg.jpg';
+import BG from'../../assets/blue_admin_bg.webp';
 
 function AdminLogin() {
   const [userId, setUserId] = useState('');
