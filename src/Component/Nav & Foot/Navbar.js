@@ -2,7 +2,7 @@ import './App.css';
 import { useRef } from "react";
 import { useNavigate } from 'react-router-dom';
 import ico from "../../assets/icon.jpg";
-import { FaBars, FaTimes, FaUserShield, FaUserFriends } from "react-icons/fa";
+import { FaBars, FaTimes,  FaUserFriends } from "react-icons/fa";
 
 function Navbar() {
   const navRef = useRef();
@@ -17,9 +17,7 @@ function Navbar() {
     navigate('/signup'); // Navigate to the signup page
   };
   
-  const admin = () => {
-    navigate('/adminlogin'); // Navigate to the admin login page
-  };
+  
 
   return (
     <header>
@@ -38,10 +36,10 @@ function Navbar() {
         </button>
       </nav>
       <div className='icon-buttons'>
-        <div className='btn-1' onClick={admin}>
+        {/* <div className='btn-1' onClick={admin}>
           <FaUserShield title="Admin" id='faicon' />
           <span className='small'>Admin</span>
-        </div>
+        </div> */}
         <div className='btn-2' onClick={handleSignupClick}>
           <FaUserFriends title="Volunteer" id='faicon' />
           <span className='small'>Volunteer</span>

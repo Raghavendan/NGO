@@ -1,0 +1,221 @@
+.sidebar {
+    width: 250px;
+    background: #f3f4f7;
+    color: #3E42A6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: width 0.3s ease;
+    position: relative;
+    border-radius: 0 20px 20px 0;
+  }
+  
+  .sidebar.collapsed {
+    width: 80px;
+  }
+  
+  .sidebar-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+  }
+
+  .sidebar.collapsed .sidebar-header {
+    justify-content: center;
+    padding: 10px 0;
+  }
+  
+  .toggle-btn {
+    background: none;
+    border: none;
+    color: #3E42A6;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+  }
+  .toggle-btn:hover{
+    background: none;
+  }
+  
+  .sidebar-menu {
+    flex-grow: 1;
+    padding-top: 20px;
+  }
+  
+  .menu-item {
+    position: relative;
+  }
+  
+  .menu-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #a0aec0;
+  }
+  
+  .sidebar.collapsed .menu-header {
+    justify-content: center;
+    padding: 10px 0;
+  }
+  
+  .sidebar.collapsed .menu-header .menu-text {
+    display: none;
+  }
+  
+  .submenu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: left;
+    position: relative;
+  }
+  
+  .submenu-item:hover {
+    background-color: #e2e8f0;
+  }
+  
+  .submenu-icon {
+    font-size: 20px;
+    margin-right: 15px;
+    transition: margin-right 0.3s ease;
+  }
+  
+  .sidebar.collapsed .submenu-item {
+    justify-content: center;
+    padding: 12px 0;
+  }
+  
+  .sidebar.collapsed .submenu-icon {
+    margin-right: 0;
+  }
+  
+  .sidebar.collapsed .submenu-item span {
+    display: none;
+  }
+  
+  .admin-profile {
+    display: flex;
+    align-items: center;
+    padding: 20px 25px;
+    border-top: 1px solid #e2e8f0;
+  }
+  
+  .sidebar.collapsed .admin-profile {
+    justify-content: center;
+    padding: 20px 0;
+  }
+  
+  .sidebar.collapsed .profile-info {
+    display: none;
+  }
+  
+  .profile-icon {
+    font-size: 30px;
+    margin-right: 15px;
+  }
+  
+  .sidebar.collapsed .profile-icon {
+    margin-right: 0;
+  }
+  
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+  
+  .profile-info span:first-child {
+    font-weight: bold;
+  }
+  
+  .profile-info span:last-child {
+    font-size: 12px;
+    opacity: 0.8;
+  }
+  
+  .logout-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  
+  .logout-button:hover {
+    background-color: #3E42A6;
+    color: #ffffff;
+  }
+  
+  .logout-icon {
+    font-size: 20px;
+  }
+  
+  .sidebar.collapsed .logout-button span {
+    display: none;
+  }
+  
+  .sidebar:not(.collapsed) .logout-icon {
+    margin-right: 10px;
+  }
+  
+  .sidebar.mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.mobile.open {
+    transform: translateX(0);
+  }
+  
+  .sidebar.mobile.collapsed {
+    width: 80px;
+  }
+  
+  .sidebar.mobile:not(.collapsed) {
+    width: 250px;
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar:not(.mobile) {
+      width: 80px;
+    }
+    .sidebar:not(.mobile) .menu-header .menu-text,
+    .sidebar:not(.mobile) .submenu-item span,
+    .sidebar:not(.mobile) .profile-info,
+    .sidebar:not(.mobile) .logout-button span {
+      display: none;
+    }
+  
+    .sidebar:not(.mobile) .menu-header,
+    .sidebar:not(.mobile) .submenu-item {
+      justify-content: center;
+      padding: 10px 0;
+    }
+  
+    .sidebar:not(.mobile) .submenu-icon {
+      margin-right: 0;
+    }
+  
+    .sidebar:not(.mobile) .admin-profile {
+      justify-content: center;
+      padding: 20px 0;
+    }
+    .sidebar:not(.mobile) .profile-icon {
+      margin-right: 0;
+    }
+  }

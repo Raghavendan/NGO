@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "./Event.css";
+import Sidebar from "../Nav & Foot/Sidebar";
 import { ref, push } from "firebase/database";
 import { database } from "../Database/firebase";
+import { MdMenu } from 'react-icons/md';
 
 import AlertModal from "../Dialog box/AlertModal";
 
@@ -14,6 +16,8 @@ const Event = () => {
   const [photoUrl, setPhotoUrl] = useState(null);
   const [location, setLocation] = useState("");
   const [showAlert, setShowAlert] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const Date_Click_Fun = (date) => {
     setSelectedDate(date);
@@ -85,7 +89,7 @@ const Event = () => {
       // after successful push, show alert and clear local events if desired
       setShowAlert(true);
       // Optionally clear local events:
-      // setEvents([]);
+      setEvents([]);
     } catch (err) {
       console.error("Error posting events to Firebase:", err);
       // Optionally show an error modal/notification
@@ -104,6 +108,20 @@ const Event = () => {
     };
   }, [photoUrl]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setSidebarOpen(window.innerWidth > 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   const Update_Event_Fun = (id, newTitle) => {
     if (newTitle) {
       const updatedEvents = events.map((event) =>
@@ -119,110 +137,118 @@ const Event = () => {
   };
 
   return (
-    <div className="app">
-      <div className="main-container">
-        <div className="calendar-and-event">
-          <div className="calendar-container">
-            <Calendar
-              value={selectedDate}
-              onClickDay={Date_Click_Fun}
-              tileClassName={({ date }) =>
-                selectedDate &&
-                date.toDateString() === selectedDate.toDateString()
-                  ? "selected"
-                  : events.some(
-                      (event) =>
-                        new Date(event.date).toDateString() === date.toDateString()
-                    )
-                  ? "event-marked"
-                  : ""
-              }
-            />
-          </div>
-          <div className="event-container">
-            <div className="event-form">
-              <h2 className="ef-name" id="sh">
-                Create Event
-              </h2>
-              <p className="sh_txt">
-                Selected Date: {selectedDate ? selectedDate.toDateString() : "None"}
-              </p>
-              <input
-                id="input"
-                type="text"
-                placeholder="Event Name"
-                value={eventName}
-                onChange={Event_Data_Update}
-              />
-              <input id="input" type="file" onChange={Photo_Upload_Fun} />
-              <input
-                id="input"
-                type="text"
-                placeholder="Location"
-                value={location}
-                onChange={Location_Data_Update}
-              />
-              <button id="input" className="create-btn" onClick={Create_Event_Fun}>
-                Click Here to Add Event
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="Created-event">
-          <h2 className="el-name" id="sh">
-            My Created Event List
-          </h2>
-
-          {events.length > 0 && (
-            <div className="event-list">
-              <div className="event-cards">
-                {events.map((event) => (
-                  <div key={event.id} className="event-card">
-                    <div className="event-card-body">
-                      {event.photo && (
-                        <img src={event.photo} alt={event.title} className="event-photo" />
-                      )}
-                      <div className="event-card-header">
-                        <span className="event-date">
-                          🗓️{new Date(event.date).toDateString()}
-                        </span>
-                        <span className="event-location">🌏{event.location}</span>
-                        <span className="event-title">{event.title}</span>
-                      </div>
-                    </div>
-                    <div className="event-actions">
-                      <button
-                        className="update-btn"
-                        onClick={() =>
-                          Update_Event_Fun(event.id, prompt("ENTER NEW TITLE"))
-                        }
-                      >
-                        Update Event
-                      </button>
-                      <button
-                        className="delete-btn"
-                        onClick={() => Delete_Event_Fun(event.id)}
-                      >
-                        Delete Event
-                      </button>
-                    </div>
-                  </div>
-                ))}
+    <div className='admin'>
+      <Sidebar isOpen={sidebarOpen} onToggle={toggleSidebar} />
+      <div className='main-content'>
+        <div className="main-container">
+            {isMobile && (
+                <button className='hamburger-btn' onClick={toggleSidebar}>
+                    <MdMenu />
+                </button>
+            )}
+            <div className="calendar-and-event">
+              <div className="calendar-container">
+                <Calendar
+                  value={selectedDate}
+                  onClickDay={Date_Click_Fun}
+                  tileClassName={({ date }) =>
+                    selectedDate &&
+                    date.toDateString() === selectedDate.toDateString()
+                      ? "selected"
+                      : events.some(
+                          (event) =>
+                            new Date(event.date).toDateString() === date.toDateString()
+                        )
+                      ? "event-marked"
+                      : ""
+                  }
+                />
+              </div>
+              <div className="event-container">
+                <div className="event-form">
+                  <h2 className="ef-name" id="sh">
+                    Create Event
+                  </h2>
+                  <p className="sh_txt">
+                    Selected Date: {selectedDate ? selectedDate.toDateString() : "None"}
+                  </p>
+                  <input
+                    id="input"
+                    type="text"
+                    placeholder="Event Name"
+                    value={eventName}
+                    onChange={Event_Data_Update}
+                  />
+                  <input id="input" type="file" onChange={Photo_Upload_Fun} />
+                  <input
+                    id="input"
+                    type="text"
+                    placeholder="Location"
+                    value={location}
+                    onChange={Location_Data_Update}
+                  />
+                  <button id="input" className="create-btn" onClick={Create_Event_Fun}>
+                    Preview Event
+                  </button>
+                </div>
               </div>
             </div>
-          )}
+            <div className="Created-event">
+              <h2 className="el-name" id="sh">
+                My Created Event List
+              </h2>
 
-          <div className="parent-container">
-            <button className="post-btn" onClick={Post_Events_To_Firebase}>
-              Post
-            </button>
-            {showAlert && (
-              <AlertModal message="Successfully posted the event!" onClose={handleCloseAlert} />
-            )}
+              {events.length > 0 && (
+                <div className="event-list">
+                  <div className="event-cards">
+                    {events.map((event) => (
+                      <div key={event.id} className="event-card">
+                        <div className="event-card-body">
+                          {event.photo && (
+                            <img src={event.photo} alt={event.title} className="event-photo" />
+                          )}
+                          <div className="event-card-header">
+                            <span className="event-date">
+                              🗓️{new Date(event.date).toDateString()}
+                            </span>
+                            <span className="event-location">🌏{event.location}</span>
+                            <span className="event-title">{event.title}</span>
+                          </div>
+                        </div>
+                        <div className="event-actions">
+                          <button
+                            className="update-btn"
+                            onClick={() =>
+                              Update_Event_Fun(event.id, prompt("ENTER NEW TITLE"))
+                            }
+                          >
+                            Edit
+                          </button>
+                          <button
+                            className="delete-btn"
+                            onClick={() => Delete_Event_Fun(event.id)}
+                          >
+                            Delete 
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div className="parent-container">
+                <button className="post-btn" onClick={Post_Events_To_Firebase}>
+                  Post
+                </button>
+                {showAlert && (
+                  <AlertModal message="Successfully posted the event!" onClose={handleCloseAlert} />
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

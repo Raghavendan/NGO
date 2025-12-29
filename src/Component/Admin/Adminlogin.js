@@ -24,8 +24,8 @@ function AdminLogin() {
 
       if (adminData) {
         if (adminData.userID === userId && adminData.password === password) {
-          navigate('/admin', { state: { adminName: adminData.adminName } });
-          window.location.href = '/admin';
+          navigate('/adminhome', { state: { adminName: adminData.adminName } });
+          window.location.href = '/adminhome';
         } else {
           setError('Invalid user ID or password');
         }

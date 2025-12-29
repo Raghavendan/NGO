@@ -4,6 +4,24 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin: -50px;
+}
+
+.hamburger-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #3E42A6;
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    align-self: flex-start;
+}
+
+.hamburger-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .calendar-and-event {
@@ -77,7 +95,14 @@
     left: 20px;
 }
 
-
+.event-actions button{
+    background: #3E42A6;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+    border: none;
+    cursor: pointer;
+}
 
 
 .sh_txt{

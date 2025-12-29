@@ -10,8 +10,8 @@
 .chat-main {
     display: flex;
     width: 100%;
-    /* margin-top: 100px; */
-    padding-top: 80px;
+    margin-top: 100px;
+    /* padding-top: 80px; */
 
     height: 100vh;
 }
@@ -323,7 +323,39 @@
     }
 
     .profile-image {
-        width: 25px;
-        height: 25px;
+
+            width: 25px;
+
+            height: 25px;
+
+        }
+
     }
-}
+
+    
+
+    .chat-admin-content {
+
+        flex-grow: 1;
+
+        padding: 30px;
+
+        background-color: #f9f9f9;
+
+        display: flex;
+
+        gap: 20px;
+
+    }
+
+    
+
+    .chat-admin-content h2 {
+
+        color: #3E42A6;
+
+        margin-bottom: 20px;
+
+    }
+
+    

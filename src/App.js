@@ -10,6 +10,7 @@ import AdminDash from './Component/Admin/AdminDash';
 import Adlog from './Component/Admin/Adminlogin';
 import PostEvent from './Component/Major/PostEvent';
 import VolunteerProfile from './Component/Volunteer/VolunteerProfile';
+import ManageVolunteers from './Component/Admin/ManageVolunteers';
 import {BrowserRouter,Routes,Route } from "react-router-dom";
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
               <Route path="/post" element={<PostEvent/>}/>
               <Route path="/volunteerHome" element={<Volunteerhome/>}/>
               <Route path="/volunteerProfile" element={<VolunteerProfile/>}/>
-
+              <Route path="/manage-volunteers" element={<ManageVolunteers />} />
               
 
 
@@ -32,8 +33,8 @@ function App() {
               <Route path="/donate" element={<Donate/>}/>
               <Route path="/abt" element={<About/>}/>
               <Route path="/signup" element={<VolunteerSignup />} />
-              <Route path="/admin" element={<AdminDash />} />
-              <Route path="/adminlogin" element={<Adlog />} />
+              <Route path="/adminhome" element={<AdminDash />} />
+              <Route path="/admin" element={<Adlog />} />
 
 
             </Routes>

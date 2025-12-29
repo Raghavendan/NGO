@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { auth, database, storage } from '../Database/firebase.js';
 import { ref, push, onValue, update, remove, onDisconnect, set } from 'firebase/database';
 import { ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import EmojiPicker from 'emoji-picker-react';
 import Menubar from "../Nav & Foot/menubar";
+import Sidebar from '../Nav & Foot/Sidebar';
 import { MdOutlineEmojiEmotions, MdDelete } from "react-icons/md";
 import { IoIosImage } from "react-icons/io";
 import './Chat.css';
@@ -22,6 +24,10 @@ function Chat() {
   const [statusData, setStatusData] = useState({});
   const [editingKey, setEditingKey] = useState(null);
   const [editText, setEditText] = useState('');
+  const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth > 768);
+
+  const location = useLocation();
+  const isAdminChat = location.state?.from === 'admin';
 
   useEffect(() => {
     const fetchUserData = () => {
@@ -33,10 +39,12 @@ function Chat() {
             const userData = snapshot.val();
             setUsername(userData.username || 'Volunteer');
             setProfileImage(userData.photoUrl || ico);
+          } else if (isAdminChat) {
+            setUsername('Admin');
           }
         });
       } else {
-        setUsername('Guest');
+        setUsername(isAdminChat ? 'Admin' : 'Guest');
       }
     };
 
@@ -69,7 +77,15 @@ function Chat() {
       set(userStatusRef, { online: true });
       onDisconnect(userStatusRef).set({ online: false });
     }
-  }, [auth, database]);
+
+    const handleResize = () => {
+        if(window.innerWidth > 768){
+            setSidebarOpen(true);
+        }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [auth, database, isAdminChat]);
 
   useEffect(() => {
     const onlineUids = Object.keys(statusData).filter(uid => statusData[uid]?.online && uid !== auth.currentUser?.uid);
@@ -155,10 +171,15 @@ function Chat() {
     await remove(msgRef);
   };
 
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   return (
-    <div>
-      <Menubar />
-      <div className="chat-main">
+    <div className={isAdminChat ? 'admin-page' : ''}>
+      {isAdminChat ? <Sidebar isOpen={sidebarOpen} onToggle={toggleSidebar} /> : <Menubar />}
+      <div className={isAdminChat ? 'chat-admin-content' : "chat-main"}>
+            {isAdminChat}
             <div className="active-users">
               <h3>Active</h3>
               {onlineUsers.map(user => (
