@@ -5,14 +5,12 @@ import React, { useEffect, useState } from 'react';
 import ico from "../../assets/icon.jpg";
 import { useLocation } from 'react-router-dom';
 import Sidebar from '../Nav & Foot/Sidebar';
-import { MdMenu } from 'react-icons/md';
 
 
 function AdminDash() {
     const [time, setTime] = useState(new Date().toLocaleTimeString());
     const [date, setDate] = useState(new Date().toLocaleDateString());
     const [volunteerCount, setVolunteerCount] = useState(0);
-    const [isMobile, setIsMobile] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [latestPosts, setLatestPosts] = useState([]);
     const [latestChats, setLatestChats] = useState([]);
@@ -28,7 +26,6 @@ function AdminDash() {
         }, 1000);
 
         const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768);
             setSidebarOpen(window.innerWidth > 768);
         };
         handleResize();
