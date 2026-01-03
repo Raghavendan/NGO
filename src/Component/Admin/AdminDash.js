@@ -3,7 +3,6 @@ import { database } from '../Database/firebase.js';
 import { ref, onValue, query, limitToLast, orderByChild } from 'firebase/database';
 import React, { useEffect, useState } from 'react';
 import ico from "../../assets/icon.jpg";
-import { useLocation } from 'react-router-dom';
 import Sidebar from '../Nav & Foot/Sidebar';
 
 
@@ -15,8 +14,6 @@ function AdminDash() {
     const [latestPosts, setLatestPosts] = useState([]);
     const [latestChats, setLatestChats] = useState([]);
     const [latestVolunteers, setLatestVolunteers] = useState([]);
-    const location = useLocation();
-    const { adminName } = location.state || {};
 
 
     useEffect(() => {
