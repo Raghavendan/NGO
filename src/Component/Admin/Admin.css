@@ -85,7 +85,10 @@
 
 
 /*-----Admin Dashboard-------*/
-
+.admin{
+  height: 100vh;
+  margin: 0;
+}
 
 .adlogo{
     height: 100px;
@@ -121,8 +124,13 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+    margin-top: -20px;
 }
-
+.main-content{
+    background: #fff;
+    height: 100vh;
+    overflow-y: auto;
+}
 .hamburger-btn {
     background: none;
     border: none;
@@ -171,6 +179,7 @@
     display: flex;
     justify-content: center;
     align-content: center;
+    margin-top: 0px;
     gap: 80px;
     flex-wrap: nowrap;
   }

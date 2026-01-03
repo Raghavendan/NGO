@@ -20,21 +20,21 @@ const storage = getStorage(app);
 const database = getDatabase(app);
 
 
-function createAdminUser() {
-  const adminRef = ref(database, 'admin');
-  set(adminRef, {
-    userID: "admin001",
-    adminName:"Aakash",
-    password: "karpingo"
-  })
-  .then(() => {
+// function createAdminUser() {
+//   const adminRef = ref(database, 'admin');
+//   set(adminRef, {
+//     userID: "admin001",
+//     adminName:"Aakash",
+//     password: "karpingo"
+//   })
+//   .then(() => {
 
-  })
-  .catch((error) => {
-    console.error('Error creating admin user:', error);
-  });
-}
+//   })
+//   .catch((error) => {
+//     console.error('Error creating admin user:', error);
+//   });
+// }
 
-createAdminUser();
+// createAdminUser();
 
 export { database, ref, set, push, onValue ,storage, auth };
