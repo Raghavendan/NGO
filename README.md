@@ -68,3 +68,35 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+---
+
+## Firebase Configuration for Production
+
+For the application to work correctly when deployed, you need to provide the Firebase configuration as environment variables.
+
+Your application is configured to use the following environment variables for Firebase:
+
+- `REACT_APP_FIREBASE_API_KEY`
+- `REACT_APP_FIREBASE_AUTH_DOMAIN`
+- `REACT_APP_FIREBASE_PROJECT_ID`
+- `REACT_APP_FIREBASE_STORAGE_BUCKET`
+- `REACT_APP_FIREBASE_MESSAGING_SENDER_ID`
+- `REACT_APP_FIREBASE_APP_ID`
+- `REACT_APP_FIREBASE_DATABASE_URL`
+
+### How to get these values?
+
+1. Go to your Firebase project console.
+2. In the project settings (click the gear icon next to "Project Overview"), you will find your project's configuration.
+3. These values (`apiKey`, `authDomain`, etc.) need to be set as environment variables in your hosting provider's dashboard (e.g., Netlify, Vercel, AWS Amplify, etc.).
+
+For example, you would set `REACT_APP_FIREBASE_API_KEY` to the `apiKey` value from your Firebase config.
+
+**IMPORTANT:** Make sure you are using the configuration for your **production** Firebase project, not your development one.
+
+### Security Warning
+
+The current admin login implementation directly accesses the Firebase database from the client-side to check the password. This is not secure, as anyone with your Firebase configuration could potentially access your database and read the admin password.
+
+For a more secure application, you should implement authentication using a server-side solution like Firebase Cloud Functions, which would handle the password verification without exposing it to the client.

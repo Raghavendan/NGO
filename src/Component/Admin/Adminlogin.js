@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ref, get, set } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
-// import '../Admin/Admin.css';
+import '../Admin/Admin.css';
 import { NeatGradient } from "@firecms/neat";
 import { database } from '../Database/firebase';
-import BG from'../../assets/blue_admin_bg.webp';
+// import BG from'../../assets/blue_admin_bg.webp';
 
 function AdminLogin() {
   const [userId, setUserId] = useState('');
@@ -96,7 +96,7 @@ function AdminLogin() {
 
   return (
     <div style={{  height: "100%" }}>
-      {/* <canvas
+      <canvas
         style={{
           position: "absolute",
           top: 0,
@@ -108,19 +108,19 @@ function AdminLogin() {
           padding: 0
         }}
         ref={canvasRef}
-      /> */}
-      <div style={{  display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" , backgroundImage:`url(${BG})`, backgroundSize: "cover", backgroundPosition: "center" }}>
+      />
+      <div style={{  display: "flex", justifyContent: "center", alignItems: "center", height: "100vh"  }}>
         <div style={{ textAlign: "center" }}>
           {!showChangePassword ? (
             <>
 
-              <form className='adcont' onSubmit={handleLogin} >
+              <form className='adcont' onSubmit={handleLogin} style={{ display: "inline-block", marginTop: "0px" }}>
               <h2 className='adlog'>Admin Login</h2>
 
-                <div>
+                <div style={ { marginTop: "20px"}}>
                   <label>User ID</label>
                   <input
-                    type="text"
+                    type="text" 
                     value={userId}
                     onChange={(e) => setUserId(e.target.value)}
                     required
