@@ -109,10 +109,10 @@ function AdminLogin() {
         }}
         ref={canvasRef}
       />
-      <form className='adcont' onSubmit={handleLogin} style={{ display: "inline-block", marginTop: "0px" }}>
+      <form className='adcont' onSubmit={handleLogin}  >
               <h2 className='adlog'>Admin Login</h2>
 
-                <div style={ { marginTop: "20px"}}>
+                <div >
                   <label>User ID</label>
                   <input
                     type="text" 
