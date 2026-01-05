@@ -109,16 +109,7 @@ function AdminLogin() {
         }}
         ref={canvasRef}
       />
-      <input className='demoin'></input>
-      <input className='demoin'></input>
-      <button className='demobtn'>Demo</button>
-
-      <div style={{  display: "flex", justifyContent: "center", alignItems: "center", height: "100vh"  }}>
-        <div style={{ textAlign: "center" }}>
-          {!showChangePassword ? (
-            <>
-
-              <form className='adcont' onSubmit={handleLogin} style={{ display: "inline-block", marginTop: "0px" }}>
+      <form className='adcont' onSubmit={handleLogin} style={{ display: "inline-block", marginTop: "0px" }}>
               <h2 className='adlog'>Admin Login</h2>
 
                 <div style={ { marginTop: "20px"}}>
@@ -144,6 +135,13 @@ function AdminLogin() {
                   Change Password
                 </span>
               </form>
+
+      <div style={{  display: "flex", justifyContent: "center", alignItems: "center", height: "100vh"  }}>
+        <div style={{ textAlign: "center" }}>
+          {!showChangePassword ? (
+            <>
+
+              
               {error && <p>{error}</p>}
             </>
           ) : (
