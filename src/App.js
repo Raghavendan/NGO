@@ -19,7 +19,6 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/event" element={<Event />} />
@@ -34,7 +33,6 @@ function App() {
             <Route path="/adminhome" element={<AdminDash />} />
             <Route path="/admin" element={<Adlog />} />
           </Routes>
-        </Suspense>
       </div>
     </BrowserRouter>
   );
