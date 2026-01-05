@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ref, get, set } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
-import '../Admin/Admin.css';
+import '../Admin/Adminlogin.css';
 import { NeatGradient } from "@firecms/neat";
 import { database } from '../Database/firebase';
 // import BG from'../../assets/blue_admin_bg.webp';
@@ -108,61 +108,55 @@ function AdminLogin() {
           padding: 0
         }}
         ref={canvasRef}
-      />
-      <form  onSubmit={handleLogin}  >
-              <h2>Admin Login</h2>
-                  <label>User ID</label>
-                  <input
-                    type="text" 
-                    value={userId}
-                    onChange={(e) => setUserId(e.target.value)}
-                    required
-                  />
-                  <label>Password</label>
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                <button type="submit">Login</button>
-                <span  onClick={() => setShowChangePassword(true)} >
-                  Change Password
-                </span>
-      </form>
+      />    
 
-      {/* <div style={{  display: "flex", justifyContent: "center", alignItems: "center", height: "100vh"  }}>
-        <div style={{ textAlign: "center" }}>
-          {!showChangePassword ? (
-            <>
+        {!showChangePassword ? (
+              <>
+                <form  onSubmit={handleLogin}  >
+                  <h2>Admin Login</h2>
+                      <label>User ID</label>
+                      <input
+                        type="text" 
+                        value={userId}
+                        onChange={(e) => setUserId(e.target.value)}
+                        required
+                      />
+                      <label>Password</label>
+                      <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                      />
+                    <button type="submit">Login</button>
+                    <span  onClick={() => setShowChangePassword(true)} >
+                      Change Password
+                    </span>
+                </form>              
+                {error && <p>{error}</p>}
+              </>
+            ) : (
+              <>
+                  <form  onSubmit={handleChangePassword} style={{ display: "inline-block", marginTop: "20px" }}>
+                    <div>
+                    <h2 >Change Password</h2>
 
-              
-              {error && <p>{error}</p>}
-            </>
-          ) : (
-            <>
-              <form className='adcont' onSubmit={handleChangePassword} style={{ display: "inline-block", marginTop: "20px" }}>
-                <div>
-                <h2 className='adlog'>Change Password</h2>
-
-                  <input
-                    type="password"
-                    placeholder='Enter a New Password'
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
-                    required
-                  />
-                </div>
-                <button type="submit">Change Password</button>
-                <span onClick={() => setShowChangePassword(false)} className='bck'>
-                  Back to Login
-                </span>
-              </form>
-              {error && <p>{error}</p>}
-            </>
-          )}
-        </div>
-      </div> */}
+                      <input
+                        type="password"
+                        placeholder='Enter a New Password'
+                        value={newPassword}
+                        onChange={(e) => setNewPassword(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <button type="submit">Change Password</button>
+                    <span onClick={() => setShowChangePassword(false)} >
+                      Back to Login
+                    </span>
+                  </form>
+                  {error && <p>{error}</p>}
+              </>
+        )}
     </div>
   );
 }
