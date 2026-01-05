@@ -109,6 +109,10 @@ function AdminLogin() {
         }}
         ref={canvasRef}
       />
+      <input className='demoin'></input>
+      <input className='demoin'></input>
+      <button className='demobtn'>Demo</button>
+
       <div style={{  display: "flex", justifyContent: "center", alignItems: "center", height: "100vh"  }}>
         <div style={{ textAlign: "center" }}>
           {!showChangePassword ? (

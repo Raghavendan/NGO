@@ -21,6 +21,26 @@
   backdrop-filter: blur(20px);
 }
 
+
+.demoin {
+  width: 80%;
+  padding: 8px;
+  text-align: center;
+  margin: 10px auto;
+  box-sizing: border-box;
+}
+
+.demobtn {
+  width: 60%;
+  padding: 10px;
+  background-color: #3E42A6;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
 .adcont div {
   margin-bottom: 15px;
   width: 100%;
