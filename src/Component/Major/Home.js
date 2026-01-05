@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Slide } from 'react-slideshow-image';
+import { Link } from 'react-router-dom';
 import 'react-slideshow-image/dist/styles.css';
 import { FaCaretSquareDown, FaCaretSquareUp } from 'react-icons/fa';
 import '../Major/Home.css';
@@ -93,7 +94,9 @@ const Home = () => {
             <div key={index} style={divStyle}>
               <div style={{ ...blurStyle, backgroundImage: `url(${slideImage.url})` }}></div>
               <div style={overlayStyle}>
-                <img src={overlayImage} alt="Overlay" className='logo' />
+                <Link to="/admin">
+                  <img src={overlayImage} alt="Overlay" className='logo' />
+                </Link>
                 <span className='moto'>Educate Beyond The Books</span>
               </div>
             </div>
