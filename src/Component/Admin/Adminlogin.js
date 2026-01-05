@@ -109,10 +109,8 @@ function AdminLogin() {
         }}
         ref={canvasRef}
       />
-      <form className='adcont' onSubmit={handleLogin}  >
-              <h2 className='adlog'>Admin Login</h2>
-
-                <div >
+      <form  onSubmit={handleLogin}  >
+              <h2>Admin Login</h2>
                   <label>User ID</label>
                   <input
                     type="text" 
@@ -120,8 +118,6 @@ function AdminLogin() {
                     onChange={(e) => setUserId(e.target.value)}
                     required
                   />
-                </div>
-                <div>
                   <label>Password</label>
                   <input
                     type="password"
@@ -129,14 +125,13 @@ function AdminLogin() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
-                </div>
                 <button type="submit">Login</button>
-                <span className='chg-pass' onClick={() => setShowChangePassword(true)} >
+                <span  onClick={() => setShowChangePassword(true)} >
                   Change Password
                 </span>
-              </form>
+      </form>
 
-      <div style={{  display: "flex", justifyContent: "center", alignItems: "center", height: "100vh"  }}>
+      {/* <div style={{  display: "flex", justifyContent: "center", alignItems: "center", height: "100vh"  }}>
         <div style={{ textAlign: "center" }}>
           {!showChangePassword ? (
             <>
@@ -167,7 +162,7 @@ function AdminLogin() {
             </>
           )}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
