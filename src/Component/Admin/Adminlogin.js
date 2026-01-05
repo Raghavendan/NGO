@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ref, get, set } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
-import '../Admin/Admin.css';
+// import '../Admin/Admin.css';
 import { NeatGradient } from "@firecms/neat";
 import { database } from '../Database/firebase';
 import BG from'../../assets/blue_admin_bg.webp';
@@ -113,7 +113,8 @@ function AdminLogin() {
         <div style={{ textAlign: "center" }}>
           {!showChangePassword ? (
             <>
-              <form className='adcont' onSubmit={handleLogin} style={{ display: "inline-block", marginTop: "0px" }}>
+
+              <form className='adcont' onSubmit={handleLogin} >
               <h2 className='adlog'>Admin Login</h2>
 
                 <div>
